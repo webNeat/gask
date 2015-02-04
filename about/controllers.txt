@@ -1,0 +1,258 @@
+UserController
+	index: GET
+		array of all users
+		// don't send the password !
+	get(userId): GET
+		{user} or {id: -1} if not found
+		// don't send the password !
+	names : GET
+		array of {id, name} of every user
+	current(): GET
+		{connected user} or {id: -1} if not logged in
+		// don't send the password !
+	password: POST
+		params: {userId}
+		// if the user is the logged in user
+		{pass: md5(password)}
+	privileges(userId): GET
+		array of privileges
+	badges(userId): GET
+		array of badges
+	questions(userId): GET
+		array of questions
+	answers(userId): GET
+		array of answers
+	comments(userId): GET
+		array of comments
+	tags(userId): GET
+		array of tags
+	notifications(userId): GET
+		array of notifications
+	votes(userId): GET
+		array of votes
+	create: POST
+		params : {name, email, password(hashed)}
+		// fill all other fields with defaut values
+		{done: bool, errs: array}
+	update(userId): PUT
+		params : { name, real_name, password(hashed), email, photo, bio, birthday, website, location }
+		{done: bool, errs: array}
+	makeAdmin(userId): PUT
+		params: {adminId, adminPass(hashed)}
+		// check check if a corresponding admin exists
+		{done: bool, errs: array}
+	login: POST
+		params: {email, password(hashed)}
+		{done: bool, errs: array}
+	logout: POST
+		{done: bool, errs: array}
+	delete(userId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+QuestionController
+	index: GET
+		array of all questions
+	get(questionId): GET
+		{question} or {id: -1} if not found
+	titles : GET
+		array of {id, title} of every question
+	answers(questionId): GET
+		array of answers
+	comments(questionId): GET
+		array of comments
+	tags(questionId): GET
+		array of tags
+	votes(questionId): GET
+		array of votes
+	create: POST
+		params : {title, content, tags:array of ids}
+		// the author is the current user
+		{done: bool, errs: array}
+	update(questionId): PUT
+		params : {title, content, tags:array, userId, password(hashed)}
+		// check if the user is the author or an admin
+		// and check the password
+		{done: bool, errs: array}
+	upVote(questionId): PUT
+		params: {userId, userPass(hashed)}
+		// check if user have the privilege
+		// check if the user didn't already voted this question
+		// check the password
+		{done: bool, errs: array}
+	downVote(questionId): PUT
+		params: {userId, userPass(hashed)}
+		// check if user have the privilege
+		// check if the user didn't already voted this question
+		// check the password
+		{done: bool, errs: array}
+	hide(questionId): DELETE
+		params: {userId, userPass(hashed)}
+		// check if user is the owner or an admin
+		// set hidden to true
+		{done: bool, errs: array}
+	delete(questionId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+AnswerController
+	index: GET
+		array of all answers
+	get(answerId): GET
+		{answer} or {id: -1} if not found
+	comments(answerId): GET
+		array of comments
+	votes(answerId): GET
+		array of votes
+	create: POST
+		params : {content}
+		// the author is the current user
+		{done: bool, errs: array}
+	update(answerId): PUT
+		params : {content, userId, password(hashed)}
+		// check if the user is the author or an admin
+		// and check the password
+		{done: bool, errs: array}
+	upVote(answerId): PUT
+		params: {userId, userPass(hashed)}
+		// check if user have the privilege
+		// check if the user didn't already voted this answer
+		// check the password
+		{done: bool, errs: array}
+	downVote(answerId): PUT
+		params: {userId, userPass(hashed)}
+		// check if user have the privilege
+		// check if the user didn't already voted this answer
+		// check the password
+		{done: bool, errs: array}
+	markAsBest(answerId): PUT
+		params: {userId, userPass(hashed)}
+		// check if user is the owner of the question
+		{done: bool, errs: array}
+	hide(answerId): DELETE
+		params: {userId, userPass(hashed)}
+		// check if user is the owner or an admin
+		// set hidden to true
+		{done: bool, errs: array}
+	delete(answerId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+CommentController
+	index: GET
+		array of all comments
+	get(commentId): GET
+		{comment} or {id: -1} if not found
+	votes(commentId): GET
+		array of votes
+	create: POST
+		params : {content}
+		// the author is the current user
+		{done: bool, errs: array}
+	update(commentId): PUT
+		params : {content, userId, password(hashed)}
+		// check if the user is the author or an admin
+		// and check the password
+		{done: bool, errs: array}
+	upVote(commentId): PUT
+		params: {userId, userPass(hashed)}
+		// check if user have the privilege
+		// check if the user didn't already voted this comment
+		// check the password
+		{done: bool, errs: array}
+	downVote(commentId): PUT
+		params: {userId, userPass(hashed)}
+		// check if user have the privilege
+		// check if the user didn't already voted this comment
+		// check the password
+		{done: bool, errs: array}
+	hide(commentId): DELETE
+		params: {userId, userPass(hashed)}
+		// check if user is the owner or an admin
+		// set hidden to true
+		{done: bool, errs: array}
+	delete(commentId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+TagController
+	index: GET
+		array of all tags
+	get(tagId): GET
+		{tag} or {id: -1} if not found
+	questions(tagId): GET
+		array of questions
+	users(tagId): GET
+		array of users
+	addToFavorites(tagId): POST
+		// add this tag to current user tags
+		{done: bool, errs: array}
+	removeFromFavorites(tagId): POST
+		// add this tag to current user tags
+		{done: bool, errs: array}
+	create: POST
+		params : {name, content}
+		// the author is the current user
+		{done: bool, errs: array}
+	update(tagId): PUT
+		params : {content, adminId, adminPass(hashed)}
+		// check if the user current is an admin
+		// and check the password
+		{done: bool, errs: array}
+	delete(tagId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+PageController
+	index: GET
+		array of all pages
+	get(pageId): GET
+		{page} or {id: -1} if not found
+	byTitle(pageName): GET
+		{page} or {id: -1} if not found
+	titles: GET
+		array of all {id, title}
+	create: POST
+		params : {title, content, adminId, adminPass(hashed)}
+		// check if the user is an admin
+		// and check the password
+		{done: bool, errs: array}
+	update(pageId): PUT
+		params : {title, content, adminId, adminPass(hashed)}
+		// check if the user is an admin
+		// and check the password
+		{done: bool, errs: array}
+	delete(pageId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+NotificationController
+	index: GET
+	array of all notifications
+
+PrivilegeCategoryController
+	index: GET
+		array of all privilege categories
+	get(id): GET /../get/{id}
+		{name, icon, privileges:array}
+
+PrivilegeController
+	index: GET
+		[{name, descr, rep, categories:array, users:array}]
+	update(id): PUT /../update/{id}
+		params: {adminId, adminPass(hashed), reputation}
+		{done: bool, errs: array}
+	get(id): GET /../get/{id}
+		{name, description, reputation, category:{id}}
+
+BadgeCategoryController
+	index: GET
+		[{id, name, icon}, ...]
+	get(id): GET /../get/{id}
+		{name, icon, badges:array}
+
+BadgeController
+	index: GET
+		[{name, descr, categories:array, users:array}]
+	get(id): GET /../get/{id}
+		{name, description, category:{id}}
