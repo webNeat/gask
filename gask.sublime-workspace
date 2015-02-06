@@ -1,0 +1,1520 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"borne",
+				"borneUField"
+			],
+			[
+				"inde",
+				"indexes"
+			],
+			[
+				"make",
+				"makeIndex"
+			],
+			[
+				"ind",
+				"indexes"
+			],
+			[
+				"crea",
+				"createObject"
+			],
+			[
+				"bor",
+				"borneFField"
+			],
+			[
+				"index",
+				"indexForm"
+			],
+			[
+				"name",
+				"nameField"
+			],
+			[
+				"I",
+				"Indicator"
+			],
+			[
+				"p",
+				"property	QML property"
+			],
+			[
+				"save",
+				"saveIndicator"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"red",
+				"reduced"
+			],
+			[
+				"exp",
+				"expandBtn"
+			],
+			[
+				"close",
+				"closeBtn"
+			],
+			[
+				"mod",
+				"ModuleAddClicked"
+			],
+			[
+				"new",
+				"newIndicatorDialog"
+			],
+			[
+				"an",
+				"anchors	(all sides)"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"anch",
+				"anchors.centerIn	centerIn"
+			],
+			[
+				"show",
+				"showUsers"
+			],
+			[
+				"c",
+				"centerIn"
+			],
+			[
+				"top",
+				"topMenu"
+			],
+			[
+				"a",
+				"anchors.margins	margins"
+			],
+			[
+				"anc",
+				"anchors	(all sides)"
+			],
+			[
+				"ach",
+				"anchors.fill	fill"
+			],
+			[
+				"user",
+				"userComponent"
+			],
+			[
+				"compo",
+				"userComponent"
+			],
+			[
+				"In",
+				"Indicator	"
+			],
+			[
+				"include",
+				"include header	< > "
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"page",
+				"pageNumber"
+			],
+			[
+				"pb",
+				"pageBottomBorder"
+			],
+			[
+				"pos",
+				"pos:r	position:relative"
+			],
+			[
+				"ne",
+				"neededPods"
+			],
+			[
+				"gae",
+				"Game"
+			],
+			[
+				"own",
+				"ownerId"
+			],
+			[
+				"nee",
+				"neededPods"
+			],
+			[
+				"free",
+				"freePods"
+			],
+			[
+				"my",
+				"myPlatinum"
+			],
+			[
+				"needed",
+				"neededPods"
+			],
+			[
+				"end",
+				"endl"
+			],
+			[
+				"game",
+				"Game"
+			],
+			[
+				"Pa",
+				"Platinum"
+			],
+			[
+				"print",
+				"printing"
+			],
+			[
+				"wh",
+				"white	GLfloat [4] "
+			],
+			[
+				"w",
+				"white	GLfloat [4] "
+			],
+			[
+				"gltra",
+				"glTranslatef(GLfloat x, GLfloat y, GLfloat z)	void "
+			],
+			[
+				"glsca",
+				"glScalef(GLfloat x, GLfloat y, GLfloat z)	void "
+			],
+			[
+				"GL_Sh",
+				"GL_SHININESS	"
+			],
+			[
+				"GL_FR",
+				"GL_FRONT	"
+			],
+			[
+				"light",
+				"light0Pos	GLfloat [4] "
+			],
+			[
+				"ios",
+				"iostream"
+			],
+			[
+				"res",
+				"resp1"
+			],
+			[
+				"get",
+				"getPrenom"
+			],
+			[
+				"nomresp",
+				"nomresp1"
+			],
+			[
+				"resp",
+				"resp1"
+			],
+			[
+				"poste",
+				"poste2"
+			],
+			[
+				"pre",
+				"prenomc"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"lis",
+				"list-style"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"n",
+				"null"
+			],
+			[
+				"for",
+				"forin	for … in … done"
+			],
+			[
+				"im",
+				"imgsByjdl"
+			],
+			[
+				"jd",
+				"jdls"
+			],
+			[
+				"jdl",
+				"jdlsNumber"
+			],
+			[
+				"imgs",
+				"imgsNumber"
+			],
+			[
+				"jds",
+				"jdlsNumber"
+			],
+			[
+				"zz",
+				"zz_povray"
+			],
+			[
+				"LF",
+				"LFC_HOST"
+			],
+			[
+				"C",
+				"Conte"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"de",
+				"deleteAdjointZones"
+			],
+			[
+				"pla",
+				"myPlatinum"
+			],
+			[
+				"tu",
+				"toBuy"
+			],
+			[
+				"to",
+				"toBuy"
+			],
+			[
+				"beg",
+				"beginend	$1.begin(), $1.end()"
+			],
+			[
+				"pri",
+				"priority"
+			],
+			[
+				"bo",
+				"boughtPods"
+			],
+			[
+				"Ord",
+				"Order"
+			],
+			[
+				"draw",
+				"drawTable"
+			],
+			[
+				"need",
+				"needingHelpZones"
+			],
+			[
+				"ha",
+				"havingFreePodsZones"
+			],
+			[
+				"can",
+				"canBuy"
+			],
+			[
+				"ava",
+				"available"
+			],
+			[
+				"near",
+				"nearEnemies"
+			],
+			[
+				"border",
+				"borderZones"
+			],
+			[
+				"f",
+				"flag"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"nea",
+				"nearHelpers"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"neede",
+				"neededPods"
+			],
+			[
+				"ma",
+				"main	main()"
+			],
+			[
+				"Pla",
+				"Player"
+			],
+			[
+				"z",
+				"zone1"
+			],
+			[
+				"player",
+				"playerCount"
+			],
+			[
+				"m",
+				"my"
+			],
+			[
+				"book",
+				"bookNum"
+			],
+			[
+				"author",
+				"authorid"
+			],
+			[
+				"boo",
+				"bookNum"
+			],
+			[
+				"deta",
+				"details-modal"
+			],
+			[
+				"book_",
+				"book_details"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"b",
+				"bold"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"books",
+				"booksTable"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"au",
+				"authors"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"desc",
+				"description"
+			],
+			[
+				"pa",
+				"parent"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"proto",
+				"proto	Prototype"
+			],
+			[
+				"set",
+				"setMethod"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"prot",
+				"proto	Prototype"
+			],
+			[
+				"xml",
+				"xmlRequest"
+			],
+			[
+				"x",
+				"xmlRequest"
+			],
+			[
+				"meth",
+				"method"
+			],
+			[
+				"methd",
+				"methods"
+			],
+			[
+				"S",
+				"SoapClient"
+			],
+			[
+				"pro",
+				"proto	Prototype"
+			],
+			[
+				"send",
+				"sendRequest"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"strt",
+				"strtotime"
+			],
+			[
+				"s",
+				"start  (variable)"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "gask.sublime-project",
+			"settings":
+			{
+				"buffer_size": 73,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Makefile/Make.sublime-build",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"fetc",
+				"Fetch: File"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			],
+			[
+				"colp",
+				"Color Picker"
+			],
+			[
+				"colo",
+				"Color Picker"
+			],
+			[
+				"colop",
+				"Color Picker"
+			],
+			[
+				"clpic",
+				"Color Picker"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"nf",
+				"ANF: New File"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"up",
+				"Convert Case: Upper Case"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"cf",
+				"Clang Format: Format Selection"
+			],
+			[
+				"cla",
+				"Clang Format: Format Selection"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"sc",
+				"Shell Command"
+			],
+			[
+				"",
+				"ANF: New File"
+			],
+			[
+				"upperc",
+				"Convert Case: Upper Case"
+			],
+			[
+				"rel",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"reloa",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"relo",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"sync ",
+				"Set Syntax: C"
+			],
+			[
+				"loadeb",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"live",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"livere",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"shco",
+				"Shell Command"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"LiveReload: Enable/disable plugins",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"new",
+				"ANF: New File"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"painsta",
+				"Package Control: Install Package"
+			],
+			[
+				"pains",
+				"Package Control: Install Package"
+			],
+			[
+				"parem",
+				"Package Control: Remove Package"
+			],
+			[
+				"pacre",
+				"Package Control: Remove Package"
+			],
+			[
+				"clf",
+				"Clang Format: Format Selection"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"fet",
+				"Fetch: File"
+			],
+			[
+				"clgf",
+				"Clang Format: Format Selection"
+			],
+			[
+				"clff",
+				"Clang Format: Format Selection"
+			],
+			[
+				"reint",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"lo",
+				"Convert Case: Lower Case"
+			],
+			[
+				"minify",
+				"Pretty JSON: Minify (compress) JSON"
+			],
+			[
+				"m",
+				"Minify::Default File Settings"
+			],
+			[
+				"pdis",
+				"Package Control: Disable Package"
+			],
+			[
+				"cfss",
+				"Clang Format: Select Style"
+			],
+			[
+				"cff",
+				"Clang Format: Format Selection"
+			],
+			[
+				"c",
+				"Clang Format: Format Selection"
+			],
+			[
+				"fs",
+				"Clang Format: Select Style"
+			],
+			[
+				"F",
+				"Clang Format: Format Selection"
+			],
+			[
+				"for",
+				"Clang Format: Format Selection"
+			],
+			[
+				"build",
+				"Build: Run"
+			],
+			[
+				"pret",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"istall",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 475.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/webneat/isima/zz3/projets/gask"
+	],
+	"file_history":
+	[
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/tester.html",
+		"/home/webneat/workspace/www/lab/awesome.php",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/js/jquery.min.js",
+		"/home/webneat/isima/zz3/projets/gask/about/models.txt",
+		"/home/webneat/isima/zz3/projets/gask/about/controllers.txt",
+		"/home/webneat/isima/zz3/projets/gask/.gitignore",
+		"/home/webneat/isima/zz3/projets/gask/gask.sublime-project",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/main.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/main.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/index.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/Block.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/application.hpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/resources.qrc",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/MduleForm.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/application.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/IndicatorForm.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/IndexForm.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/indicator.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/indicator.hpp",
+		"/home/webneat/workspace/cpp/qt/qml/src/main.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/.gitignore",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/README.md",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/js/handler.js",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/User.qml",
+		"/home/webneat/temp/idea.properties",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/value.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/module.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/value.hpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/build/indicators",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/indocators.pro",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/module.hpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/index.hpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/Makefile",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/gui.pro",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/src/main.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/moc_app.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/moc_user.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/data",
+		"/home/webneat/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/src/app.hpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/src/user.hpp",
+		"/home/webneat/.bashrc",
+		"/home/webneat/.bash_history",
+		"/home/webneat/.bash_profile",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/src/app.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/test/test.pro",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/test/testIndicator.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/test/main.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/MiniButton.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/src/user.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/user.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/demo.qml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/resources.qrc",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/console/main.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/tests/tester.cpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/tests/tests.pro",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/tests/tester.hpp",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/indicators.pro",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/console/Makefile",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/core/Makefile",
+		"/home/webneat/isima/zz2/tps/simulation/SMA/Makefile",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/Makefile",
+		"/home/webneat/isima/zz3/projets/pfa/projet/about/features.txt",
+		"/home/webneat/isima/zz3/projets/pfa/projet/about/classes/classes.yuml",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/about/files",
+		"/home/webneat/isima/zz3/projets/pfa/indicators/gui",
+		"/home/webneat/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/var/www/html/word/Gruntfile.js",
+		"/var/www/html/word/node_modules/.bin/grunt-jade",
+		"/var/www/html/word/dist/parts/footer.html",
+		"/var/www/html/word/src/js/template.js",
+		"/var/www/html/word/dist/js/all.js",
+		"/var/www/html/word/src/jade/parts/footer.jade",
+		"/home/webneat/workspace/java/biblio/war/app/js/soap_client.js",
+		"/home/webneat/workspace/java/biblio/war/app/js/part.js",
+		"/var/www/html/word/package.json",
+		"/var/www/html/word/make.sh",
+		"/var/www/html/word/dist/all.html",
+		"/var/www/html/word/dist/index.html",
+		"/var/www/html/word/src/js/pages.js",
+		"/var/www/html/word/src/sass/mixins/all.sass",
+		"/var/www/html/word/dist/css/main.css",
+		"/var/www/html/word/src/scss/main.scss",
+		"/media/webneat/USB DISK/revision info/mo_projet.c",
+		"/var/www/html/word/src/jade/sample2.jade",
+		"/var/www/html/word/src/js/main.js",
+		"/var/www/html/word/node_modules/grunt-jade/support/global-runtime.template",
+		"/var/www/html/word/src/jade/sample.jade",
+		"/var/www/html/word/dist/jade/all.jade",
+		"/var/www/html/word/node_modules/grunt-wkhtmltopdf/tasks/wkhtmltopdf.js",
+		"/tmp/.fr-at9Hy9/package/tasks/wkhtmltopdf.js",
+		"/var/www/html/word/node_modules/.bin/grunt-wkhtmltopdf",
+		"/var/www/html/word/src/scss/config.rb",
+		"/var/www/html/word/dist/all.js",
+		"/var/www/html/word/dist/runtime.js",
+		"/var/www/html/word/result.pdf",
+		"/var/www/html/word/index.html",
+		"/var/www/html/word/jade/all.jade",
+		"/var/www/html/word/js/all.min.js",
+		"/var/www/html/word/js/all.js",
+		"/home/webneat/.config/sublime-text-3/Packages/User/builds/Grunt.sublime-build",
+		"/var/www/html/word/jade/main.jade",
+		"/var/www/html/word/js/main.js",
+		"/var/www/html/word/jade/sample2.jade",
+		"/var/www/html/word/js/libs/jquery.js",
+		"/var/www/html/word/npm-debug.log",
+		"/home/webneat/tuts/Getting Good with Grunt/notes.txt",
+		"/tmp/HappyNewYear.cpp",
+		"/var/www/html/word/jade/sample.jade",
+		"/home/webneat/workspace/challenges/codingame/ia/target-seeking-working.cpp",
+		"/home/webneat/C:\\nppdf32Log\\debuglog.txt",
+		"/home/webneat/workspace/challenges/codingame/ia/best-yet.cpp",
+		"/home/webneat/isima/zz3/tps/infographie/rapport/rapport.html",
+		"/home/webneat/isima/zz3/tps/infographie/rendu/code source/build.sh",
+		"/home/webneat/isima/zz3/tps/infographie/tp2/tp2.c",
+		"/home/webneat/.config/sublime-text-3/Packages/User/builds/wnBuild.sublime-build",
+		"/home/webneat/isima/zz3/tps/infographie/tp2/exe",
+		"/home/webneat/workspace/writings/english/butterfly.txt",
+		"/home/webneat/workspace/challenges/codingame/ia/platinum.cpp",
+		"/home/webneat/workspace/www/word/about/syntax.txt",
+		"/home/webneat/workspace/www/word/css/scss/main.scss",
+		"/home/webneat/workspace/www/word/html/sample.html",
+		"/home/webneat/workspace/www/word/index.html",
+		"/home/webneat/workspace/www/word/md/sample.md",
+		"/home/webneat/workspace/www/word/make.sh",
+		"/home/webneat/workspace/www/word/Guardfile",
+		"/home/webneat/tools/dev/web/Markdown_1.0.1/Markdown.pl",
+		"/home/webneat/tools/dev/web/Markdown_1.0.1/Markdown Readme.text"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"GET",
+			"tag",
+			"store",
+			"question",
+			"vote",
+			"comment",
+			"answer",
+			"answers",
+			"question",
+			"visible",
+			"bool",
+			"admin",
+			"name",
+			"user",
+			"put",
+			"post",
+			"notifications",
+			",",
+			"blocks",
+			"parent",
+			"index",
+			", borneFField, borneUField, valueField",
+			"Index",
+			"index",
+			"Index",
+			"index",
+			"Index",
+			"editIndex",
+			"indicator",
+			"size",
+			"return",
+			"string",
+			"double",
+			"string",
+			"borneF",
+			"weight",
+			"name",
+			"indicatorFormNameTxt.text",
+			"indicatorForm.nameField",
+			"name",
+			"newIndicatorDialog",
+			"saveDialog",
+			"save",
+			"jv",
+			"jvm",
+			"option",
+			"xm",
+			"heap",
+			"reduced",
+			"emit",
+			"onClicked",
+			"indicatorNameTxt",
+			"userComponent",
+			"modulChanged",
+			"indexChanged",
+			"indicatorChanged",
+			"void Application::",
+			"void",
+			"qt",
+			"btn",
+			"app.users",
+			"users",
+			"component",
+			"numbers",
+			"users",
+			"Data",
+			"getUsersAsVector",
+			"QList",
+			"QVariantList",
+			"CProjectFile",
+			"QVariantList",
+			"headers",
+			"// ",
+			"indicator_h",
+			"bindings",
+			"first_argument",
+			"method_name",
+			"afficher_cons",
+			"affiche",
+			"valeur_courante",
+			"decode_int",
+			"code_touche",
+			" ",
+			"wkhtmltopdf",
+			"js/",
+			"windows",
+			"\"",
+			"https",
+			"priority",
+			"targets",
+			"neededPods",
+			"targets",
+			"priority",
+			"Zone",
+			"priority",
+			"collectedPods",
+			"cerr",
+			"wait",
+			"trai",
+			"pre",
+			"//",
+			"rotx",
+			"1,",
+			"0",
+			"float",
+			"1",
+			"glColor3f",
+			"},",
+			"triangle",
+			"html4",
+			"html",
+			":",
+			"command_pa",
+			"string",
+			"iostream",
+			"[Utilisateur]-",
+			" - ",
+			"   ",
+			"16<",
+			"7<",
+			"5<",
+			"	",
+			"<span class=\"page\">",
+			"page",
+			" <label class=\"page\">34</label>",
+			"<label",
+			"label",
+			"->c"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"()",
+			"GtNp4LSGFuCQhpj"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "gask.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 73,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clangcomplete":
+	{
+		"height": 141.0
+	},
+	"output.exec":
+	{
+		"height": 286.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 141.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 142.0
+	},
+	"project": "gask.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"about/pages.txt"
+			],
+			[
+				"app",
+				"indicators/core/application.cpp"
+			],
+			[
+				"indcpp",
+				"indicators/core/indicator.cpp"
+			],
+			[
+				"han",
+				"indicators/gui/qml/js/handler.js"
+			],
+			[
+				"res",
+				"indicators/gui/qml/resources.qrc"
+			],
+			[
+				"block",
+				"indicators/gui/qml/Block.qml"
+			],
+			[
+				"indca",
+				"indicators/core/indicator.hpp"
+			],
+			[
+				"appli",
+				"indicators/core/application.hpp"
+			],
+			[
+				"index",
+				"indicators/core/index.cpp"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"footer",
+				"src/jade/parts/footer.jade"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"ma",
+				"css/main.css"
+			],
+			[
+				"sign",
+				"signin.php"
+			],
+			[
+				"site",
+				"site_web.sql"
+			],
+			[
+				"st",
+				"css/style.css"
+			],
+			[
+				"style",
+				"css/style.css"
+			],
+			[
+				"sty",
+				"css/style.css"
+			],
+			[
+				"gwt",
+				"gwt.html"
+			],
+			[
+				"r",
+				"rapport.html"
+			],
+			[
+				"soap",
+				"js/soap_client.js"
+			],
+			[
+				"part",
+				"js/part.js"
+			],
+			[
+				"books",
+				"js/books.js"
+			],
+			[
+				"list",
+				"AuthorsList.java"
+			],
+			[
+				"auadd",
+				"AuthorsAdd.java"
+			],
+			[
+				"ese",
+				"exe.sh"
+			],
+			[
+				"la",
+				"platinum.cpp"
+			],
+			[
+				"p",
+				"platinum.cpp"
+			],
+			[
+				"pla",
+				"platinum.cpp"
+			],
+			[
+				"tp",
+				"tp2.c"
+			],
+			[
+				"side",
+				"js/sidebar.js"
+			],
+			[
+				"book",
+				"views/book_list.html"
+			],
+			[
+				"book_add",
+				"views/book_add.html"
+			],
+			[
+				"book_li",
+				"views/book_list.html"
+			],
+			[
+				"datatables.bootstrap",
+				"css/dataTables.bootstrap.css"
+			],
+			[
+				"data",
+				"css/dataTables.bootstrap.css"
+			],
+			[
+				"add",
+				"views/book_add.html"
+			],
+			[
+				"ar",
+				"js/templates/arg.xml"
+			],
+			[
+				"req",
+				"js/templates/request.xml"
+			],
+			[
+				"ap",
+				"appeles.php"
+			],
+			[
+				"wsdl",
+				"wsdl.xml"
+			],
+			[
+				"wsd",
+				"wsdl.xml"
+			],
+			[
+				"ech",
+				"src/echantillon.hpp"
+			],
+			[
+				"va",
+				"src/valeur.cpp"
+			],
+			[
+				"fre",
+				"data/french.json"
+			],
+			[
+				"f",
+				"data/french.json"
+			],
+			[
+				"nu",
+				"files/numbers.txt"
+			],
+			[
+				"attc",
+				"src/attribut.cpp"
+			],
+			[
+				"me",
+				"src/method.cpp"
+			],
+			[
+				"met",
+				"src/method.hpp"
+			],
+			[
+				"atcp",
+				"src/attribut.cpp"
+			],
+			[
+				"quod",
+				"src/php/data/quotes.data.json"
+			],
+			[
+				"quotes",
+				"src/php/data/quotes.data.json"
+			],
+			[
+				"item",
+				"src/php/vendors/wn/data/Item.php"
+			],
+			[
+				"comma",
+				"src/php/vendors/wn/cmd/Command.php"
+			],
+			[
+				"iterfa",
+				"src/php/vendors/wn/data/Interfaces.php"
+			],
+			[
+				"data/data",
+				"src/php/vendors/wn/data/Data.php"
+			],
+			[
+				"deta",
+				"yt_comments_addon/about/details.txt"
+			],
+			[
+				".js",
+				"yt_comments_addon/files/wn/yt_comments/js/members_yt_comments.js"
+			],
+			[
+				"sett",
+				"yt_comments_addon/files/admin2/yt_comments_settings.php"
+			],
+			[
+				"de",
+				"yt_comments_addon/about/details.txt"
+			],
+			[
+				"adm",
+				"yt_comments_addon/files/admin.php"
+			],
+			[
+				"cron",
+				"yt_comments_addon/files/cronperhour.php"
+			],
+			[
+				"task",
+				"about/tasks.txt"
+			],
+			[
+				"comm",
+				"src/php/vendors/wn/cmd/Command.php"
+			],
+			[
+				"fs",
+				"src/php/vendors/wn/tools/FS.php"
+			],
+			[
+				"tas",
+				"about/tasks.txt"
+			],
+			[
+				"ytccr",
+				"files/yt_comments_cron.php"
+			],
+			[
+				"yt_commet_comments",
+				"db/yt_commet_comments.sql"
+			],
+			[
+				"yt_comment_log",
+				"db/yt_comment_log.sql"
+			],
+			[
+				"yt_ccr",
+				"files/yt_comments_cron.php"
+			],
+			[
+				"comcl",
+				"yt_comments_addon/db/yt_commet_clicks.sql"
+			],
+			[
+				"comme",
+				"yt_comments_addon/db/yt_commet_comments.sql"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/freelance/freelancer/js/grapher.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 202.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
