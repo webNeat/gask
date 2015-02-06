@@ -11,15 +11,14 @@ import java.security.MessageDigest
 class UserController {
 
     static allowedMethods = [index : "GET", get : "GET", names : "GET", current : "GET", password : "POST", priviliges : "GET", badges : "GET", questions : "GET", answers : "GET", comments : "GET", tags : "GET", notifications : "GET", votes : "GET", create : "POST", save: "POST", makeAdmin : "PUT", login : "PSOT", logout : "POST", update: "PUT", delete: "DELETE"]
-
+    //Done
     def index() {
         render User.list() as JSON
     }
-
-    def get(int userId){
-        def user = User.get(userId)
-        def result = new LinkedHashMap()
-            
+    //Done
+    def get(int id){
+        def user = User.get(id)
+        def result = new LinkedHashMap()   
         if(user == null){
             result.id = -1
         }else{
@@ -27,7 +26,7 @@ class UserController {
         }
         render result as JSON
     }
-    
+    //Done
     def names(){
         def users = User.withCriteria {
             projections {
@@ -37,7 +36,7 @@ class UserController {
         }
         /*
         def result = users.collect { user->
-            ["userId": user.id, "userName": user.name]
+            ["id": user.id, "userName": user.name]
         }*/
         render users as JSON
 
@@ -54,56 +53,57 @@ class UserController {
         render result as JSON
     }
 
-    def privileges(int userId){
-        def user = User.get(params.userId)
+    def privileges(int id){
+        def user = User.get(params.id)
         render user.privileges as JSON   
         
     }
 
-    def badges(int userId){
-        def user = User.get(params.userId)
+    def badges(int id){
+        def user = User.get(params.id)
         render user.badges as JSON 
     }
 
-    def questions(int userId){
-        def user = User.get(params.userId)
+    def questions(int id){
+        def user = User.get(params.id)
         render user.questions as JSON   
     
     }
     
-    def answers(int userId){
-        def user = User.get(params.userId)
+    def answers(int id){
+        def user = User.get(params.id)
         render user.answers as JSON   
     
     } 
 
-    def comments(int userId){
-        def user = User.get(params.userId)
+    def comments(int id){
+        def user = User.get(params.id)
         render user.comments as JSON   
     
     }
 
-    def tags(int userId){
-        def user = User.get(params.userId)
+    def tags(int id){
+        def user = User.get(params.id)
         render user.tags as JSON   
     
     }
 
-    def notifications(int userId){
-        def user = User.get(params.userId)
+    def notifications(int id){
+        def user = User.get(params.id)
         render user.notifications as JSON   
     
     }
 
-    def votes(int userId){
-        def user = User.get(params.userId)
+    def votes(int id){
+        def user = User.get(params.id)
         render user.votes as JSON   
     
     }
-
+    //Done
     @Transactional
     def create(){
-        def userInstance = new User(params)
+        def userInstance = new User()
+        userInstance.properties = params
         def result = new LinkedHashMap()
         if (userInstance == null) {
             result.done = false
@@ -125,8 +125,10 @@ class UserController {
     }
 
     @Transactional
-    def update(int userId){
-        def userInstance = User.get(userId)
+    def update(int id){
+        def userInstance = User.get(id)
+        println params.name
+        
         def result = new LinkedHashMap()
         if (userInstance == null) {
             result.done = false
@@ -135,15 +137,10 @@ class UserController {
            return
         }
 
-        userInstance.name = params.name
-        userInstance.realName = params.realName
-        userInstance.password = params.password
-        userInstance.email = params.email
-        userInstance.photo = params.photo
-        userInstance.bio = params.bio
-        userInstance.birthday = params.birthday
-        userInstance.website = params.website
-        userInstance.location = params.location
+
+        userInstance.properties = params
+        println userInstance.name
+        
         if (!userInstance.save(flush:true)) {
             result.done = false
             result.errs = userInstance.errors
@@ -155,10 +152,9 @@ class UserController {
         result.errs = null
         render result as JSON
     }
-
     @Transactional
-    def makeAdmin(int userId){
-        def userInstance = User.get(userId)
+    def makeAdmin(int id){
+        def userInstance = User.get(id)
         def result = new LinkedHashMap()
         if (userInstance == null || userInstance.isAdmin == true ) {
             result.done = false
@@ -184,8 +180,8 @@ class UserController {
     }
 
     @Transactional
-    def delete(int userId) {
-        def admin = User.get(userId)
+    def delete(int id) {
+        def admin = User.get(id)
         def result = new LinkedHashMap()
         if (userInstance == null) {
             result.done = false

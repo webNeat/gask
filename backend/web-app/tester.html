@@ -6,7 +6,7 @@
 	<script>
 	$(document).ready(function(){
 		$('#send').click(function(){
-			var url = $('#url').val();
+			var url = '/gask-backend/' + $('#url').val();
 			var data = '{' + $('#data').val() + '}';
 			console.log(data);
 			data = JSON.parse(data);
