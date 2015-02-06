@@ -39,7 +39,7 @@ UserController
 		{done: bool, errs: array}
 	makeAdmin(userId): PUT
 		params: {adminId, adminPass(hashed)}
-		// check check if a corresponding admin exists
+		// check if a corresponding admin exists
 		{done: bool, errs: array}
 	login: POST
 		params: {email, password(hashed)}

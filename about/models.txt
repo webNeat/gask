@@ -5,12 +5,12 @@ User
 	password
 	email
 	photo
-	bio
+	bio : Text
 	birthday
 	website
 	location
 	reputation
-	created_at
+	created_at * a verifier
 	last_login
 	profile_views
 	isAdmin
@@ -26,7 +26,6 @@ PrivilegeCategory
 	hasMany: Privilege
 	name
 	icon
-
 Badge
 	hasMany: User
 	belongsTo: BadgeCategory
