@@ -9,12 +9,13 @@
 			var url = '/gask-backend/' + $('#url').val();
 			var data = '{' + $('#data').val() + '}';
 			console.log(data);
-			data = JSON.parse(data);
+			// data = JSON.parse(data);
 			$.ajax(url, {
 				crossDomain: true,
 				type: $('#method').val(),
 				data: data,
-				dataType: 'text'
+				dataType: 'text',
+				contentType: "application/json",
 			}).done(function(result){
 				$('#result').html(result);
 			}).fail(function(result) {
