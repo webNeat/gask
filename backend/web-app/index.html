@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="gask">
+<head>
+  <meta charset="utf-8">
+  <title> Grails Ask Answer </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="styles/bootstrap.yeti.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div ng-include="'views/parts/navbar.html'"></div>
+  <div class="container">
+    <div ng-view=""></div>
+    <div class="footer">
+      Some other links here
+    </div>
+  </div>
+
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/angular.min.js"></script>
+  <script src="vendor/angular.modules.min.js"></script>
+  <script src="vendor/bootstrap.min.js"></script>
+  
+  <script src="scripts/app.js"></script>
+  <script src="scripts/services/db.js"></script>
+  <script src="scripts/services/err.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/parts.js"></script>
+  <script src="scripts/controllers/user.js"></script>
+</body>
+</html>

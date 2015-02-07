@@ -202,7 +202,6 @@ class UserController {
     //Done
     def login() {
         def user = User.findByEmailAndPassword(request.JSON.email, request.JSON.password)
-        println user.name
         def result = new LinkedHashMap()
         if(session.user != null){
             result.done = false
