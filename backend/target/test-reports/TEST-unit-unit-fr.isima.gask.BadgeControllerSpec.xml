@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="6" failures="1" hostname="zaini" name="fr.isima.gask.BadgeControllerSpec" tests="7" time="11.332" timestamp="2015-02-07T18:21:49">
+  <properties />
+  <testcase classname="fr.isima.gask.BadgeControllerSpec" name="Test the index action returns the correct model" time="10.083">
+    <failure message="Condition not satisfied:&#xa;&#xa;model.badgeInstanceCount == 0&#xa;|     |                  |&#xa;[:]   null               false&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.badgeInstanceCount == 0
+|     |                  |
+[:]   null               false
+
+	at fr.isima.gask.BadgeControllerSpec.Test the index action returns the correct model(BadgeControllerSpec.groovy:25)
+</failure>
+  </testcase>
+  <testcase classname="fr.isima.gask.BadgeControllerSpec" name="Test the create action returns the correct model" time="0.768">
+    <error message="No signature of method: fr.isima.gask.BadgeController.create() is applicable for argument types: () values: []&#xa;Possible solutions: get(), grep(), chain(java.util.Map), get(int), raw(java.lang.Object), render(groovy.lang.Closure)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeController.create() is applicable for argument types: () values: []
+Possible solutions: get(), grep(), chain(java.util.Map), get(int), raw(java.lang.Object), render(groovy.lang.Closure)
+	at fr.isima.gask.BadgeControllerSpec.Test the create action returns the correct model(BadgeControllerSpec.groovy:30)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.BadgeControllerSpec" name="Test the save action correctly persists an instance" time="0.118">
+    <error message="No signature of method: fr.isima.gask.BadgeController.save() is applicable for argument types: (fr.isima.gask.Badge) values: [fr.isima.gask.Badge : (unsaved)]&#xa;Possible solutions: wait(), any(), wait(long), raw(java.lang.Object), each(groovy.lang.Closure), any(groovy.lang.Closure)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeController.save() is applicable for argument types: (fr.isima.gask.Badge) values: [fr.isima.gask.Badge : (unsaved)]
+Possible solutions: wait(), any(), wait(long), raw(java.lang.Object), each(groovy.lang.Closure), any(groovy.lang.Closure)
+	at fr.isima.gask.BadgeControllerSpec.Test the save action correctly persists an instance(BadgeControllerSpec.groovy:43)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.BadgeControllerSpec" name="Test that the show action returns the correct model" time="0.099">
+    <error message="No signature of method: fr.isima.gask.BadgeController.show() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: raw(java.lang.Object), wait(), get(), any(), dump(), find()" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeController.show() is applicable for argument types: (null) values: [null]
+Possible solutions: raw(java.lang.Object), wait(), get(), any(), dump(), find()
+	at fr.isima.gask.BadgeControllerSpec.Test that the show action returns the correct model(BadgeControllerSpec.groovy:64)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.BadgeControllerSpec" name="Test that the edit action returns the correct model" time="0.074">
+    <error message="No signature of method: fr.isima.gask.BadgeController.edit() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: wait(), wait(long), get(), wait(long, int), get(int), each(groovy.lang.Closure)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeController.edit() is applicable for argument types: (null) values: [null]
+Possible solutions: wait(), wait(long), get(), wait(long, int), get(int), each(groovy.lang.Closure)
+	at fr.isima.gask.BadgeControllerSpec.Test that the edit action returns the correct model(BadgeControllerSpec.groovy:80)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.BadgeControllerSpec" name="Test the update action performs an update on a valid domain instance" time="0.048">
+    <error message="No signature of method: fr.isima.gask.BadgeController.update() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: get(), use([Ljava.lang.Object;), split(groovy.lang.Closure), putAt(java.lang.String, java.lang.Object), isCase(java.lang.Object)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeController.update() is applicable for argument types: (null) values: [null]
+Possible solutions: get(), use([Ljava.lang.Object;), split(groovy.lang.Closure), putAt(java.lang.String, java.lang.Object), isCase(java.lang.Object)
+	at fr.isima.gask.BadgeControllerSpec.Test the update action performs an update on a valid domain instance(BadgeControllerSpec.groovy:98)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.BadgeControllerSpec" name="Test that the delete action deletes an instance if it exists" time="0.046">
+    <error message="No signature of method: fr.isima.gask.BadgeController.delete() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: get(), every(), sleep(long), get(int), getAt(java.lang.String), split(groovy.lang.Closure)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeController.delete() is applicable for argument types: (null) values: [null]
+Possible solutions: get(), every(), sleep(long), get(int), getAt(java.lang.String), split(groovy.lang.Closure)
+	at fr.isima.gask.BadgeControllerSpec.Test that the delete action deletes an instance if it exists(BadgeControllerSpec.groovy:130)
+</error>
+  </testcase>
+  <system-out><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-out>
+  <system-err><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-err>
+</testsuite>

@@ -51,7 +51,7 @@ class TagController {
             }
         }else{
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }
         render result as JSON
     }
@@ -81,11 +81,11 @@ class TagController {
         def user = User.get(session.user.id)        
         if (tagInstance == null) {
             result.done = false
-            result.errs = 'tag not found'
+            result.errs = 17
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 tagInstance.content = request.JSON.content
@@ -94,15 +94,15 @@ class TagController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -114,10 +114,10 @@ class TagController {
         def result = new LinkedHashMap()
         if (tagInstance == null) {
             result.done = false
-            result.errs = 'tag not found'
+            result.errs = 17
         }else if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 removeFromFavorites(id)
@@ -126,11 +126,11 @@ class TagController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }   

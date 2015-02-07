@@ -47,7 +47,7 @@ class CommentController {
             }
         }else{
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }
         render result as JSON
     }
@@ -58,11 +58,11 @@ class CommentController {
         def user = User.get(session.user.id)        
         if (commentInstance == null) {
             result.done = false
-            result.errs = 'comment not found'
+            result.errs = 13
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if((commentInstance.author.id == request.JSON.userId && commentInstance.author.password == request.JSON.password) || user.isAdmin == true ){
                 commentInstance.content = request.JSON.content
                 if(commentInstance.save(flush:true)){
@@ -70,11 +70,11 @@ class CommentController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -102,11 +102,11 @@ class CommentController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'user have already upVoted'
+                result.errs = 4
             }
         }else{
                 result.done = false
-                result.errs = 'user don t have privilege to upVote'
+                result.errs = 5
         }
         render result as JSON
     }
@@ -134,11 +134,11 @@ class CommentController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'user have already upVoted'
+                result.errs = 4
             }
         }else{
                 result.done = false
-                result.errs = 'user don t have privilege to upVote'
+                result.errs = 5
         }
         render result as JSON 
 
@@ -150,11 +150,11 @@ class CommentController {
         def user = User.get(session.user.id)        
         if (commentInstance == null) {
             result.done = false
-            result.errs = 'comment not found'
+            result.errs = 13
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if((commentInstance.author.id == request.JSON.userId && commentInstance.author.password == request.JSON.userPass) || user.isAdmin == true ){
                 commentInstance.hidden = true
                 if(commentInstance.save(flush:true)){
@@ -162,11 +162,11 @@ class CommentController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
             }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON   
     }
@@ -177,10 +177,10 @@ class CommentController {
         def result = new LinkedHashMap()
         if (commentInstance == null) {
             result.done = false
-            result.errs = 'comment not found'
+            result.errs = 13
         }else if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 commentInstance.author.removeFromComments(commentInstance)
@@ -189,11 +189,11 @@ class CommentController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }   

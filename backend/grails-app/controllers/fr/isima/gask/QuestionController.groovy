@@ -70,7 +70,7 @@ class QuestionController {
             }
         }else{
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }
         render result as JSON
     }
@@ -81,11 +81,11 @@ class QuestionController {
         def user = User.get(session.user.id)        
         if (questionInstance == null) {
             result.done = false
-            result.errs = 'question not found'
+            result.errs = 11
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if((questionInstance.author.id == request.JSON.userId && questionInstance.author.password == request.JSON.password) || user.isAdmin == true ){
             //user ==  admin
                 questionInstance.content = request.JSON.content
@@ -94,11 +94,11 @@ class QuestionController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -126,11 +126,11 @@ class QuestionController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'user have already upVoted'
+                result.errs = 4
             }
         }else{
                 result.done = false
-                result.errs = 'user don t have privilege to upVote'
+                result.errs = 5
         }
         render result as JSON
     }
@@ -158,11 +158,11 @@ class QuestionController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'user have already upVoted'
+                result.errs = 4
             }
         }else{
                 result.done = false
-                result.errs = 'user don t have privilege to upVote'
+                result.errs = 5
         }
         render result as JSON 
 
@@ -174,11 +174,11 @@ class QuestionController {
         def user = User.get(session.user.id)        
         if (questionInstance == null) {
             result.done = false
-            result.errs = 'question not found'
+            result.errs = 11
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if((questionInstance.author.id == request.JSON.userId && questionInstance.author.password == request.JSON.userPass) || user.isAdmin == true ){
                 questionInstance.hidden = true
                 if(questionInstance.save(flush:true)){
@@ -186,11 +186,11 @@ class QuestionController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
             }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON   
     }
@@ -201,10 +201,10 @@ class QuestionController {
         def result = new LinkedHashMap()
         if (questionInstance == null) {
             result.done = false
-            result.errs = 'question not found'
+            result.errs = 11
         }else if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 questionInstance.author.removeFromQuestions(questionInstance)
@@ -213,11 +213,11 @@ class QuestionController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }   

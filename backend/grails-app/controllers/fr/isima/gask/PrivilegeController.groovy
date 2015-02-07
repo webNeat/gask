@@ -31,11 +31,11 @@ class PrivilegeController {
         def user = User.get(session.user.id)        
         if (privilegeInstance == null) {
             result.done = false
-            result.errs = 'privilege not found'
+            result.errs = 16
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 privilegeInstance.reputation = request.JSON.reputation
@@ -44,15 +44,15 @@ class PrivilegeController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'privilege not updated'
+                    result.errs = 19
                 }
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }

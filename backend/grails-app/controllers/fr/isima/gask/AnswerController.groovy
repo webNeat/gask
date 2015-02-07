@@ -52,7 +52,7 @@ class AnswerController {
             }
         }else{
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }
         render result as JSON
     }
@@ -63,11 +63,11 @@ class AnswerController {
         def user = User.get(session.user.id)        
         if (answerInstance == null) {
             result.done = false
-            result.errs = 'answer not found'
+            result.errs = 9
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.userId && user.password == request.JSON.password){
             //user ==  admin
                 answerInstance.content = request.JSON.content
@@ -76,11 +76,11 @@ class AnswerController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -107,11 +107,11 @@ class AnswerController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'user have already upVoted'
+                result.errs = 4
             }
         }else{
                 result.done = false
-                result.errs = 'user don t have privilege to upVote'
+                result.errs = 5
         }
         render result as JSON
     }
@@ -138,11 +138,11 @@ class AnswerController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'user have already upVoted'
+                result.errs = 4
             }
         }else{
                 result.done = false
-                result.errs = 'user don t have privilege to upVote'
+                result.errs = 5
         }
         render result as JSON 
 
@@ -154,11 +154,11 @@ class AnswerController {
         def user = User.get(session.user.id)        
         if (answerInstance == null) {
             result.done = false
-            result.errs = 'answer not found'
+            result.errs = 9
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if((answerInstance.author.id == request.JSON.userId && answerInstance.author.password == request.JSON.userPass) || user.isAdmin == true){
                 answerInstance.hidden = true
                 if(answerInstance.save(flush:true)){
@@ -166,11 +166,11 @@ class AnswerController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
             }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON   
     }
@@ -181,10 +181,10 @@ class AnswerController {
         def result = new LinkedHashMap()
         if (answerInstance == null) {
             result.done = false
-            result.errs = 'answer not found'
+            result.errs = 9
         }else if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 answerInstance.author.removeFromAnswers(answerInstance)
@@ -193,11 +193,11 @@ class AnswerController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -212,18 +212,18 @@ class AnswerController {
                 //Save ou pas ??
                 if(!question.save(flush:true)){
                     result.done = false
-                    result.errs = 'best Answer not updated'   
+                    result.errs = 18  
                 }else{
                     result.done = true
                     result.errs = null          
                 }
             }else{
                 result.done = false
-                result.errs = 'user no owner of this question'
+                result.errs = 7
             }
         }else{
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }
         render result as JSON
     }

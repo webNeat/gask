@@ -156,7 +156,7 @@ class UserController {
         def result = new LinkedHashMap()
         if(session.user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(session.user.id == request.JSON.adminId && session.user.password == request.JSON.adminPass){
             if(session.user.isAdmin == true){
                 def userInstance = User.get(id)
@@ -165,11 +165,11 @@ class UserController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'  
+                result.errs = 6  
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -179,7 +179,7 @@ class UserController {
         def result = new LinkedHashMap()
         if(session.user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(session.user.id == request.JSON.adminId && session.user.password == request.JSON.adminPass){
             if(session.user.isAdmin == true){
                 def userInstance = User.get(id)
@@ -188,12 +188,12 @@ class UserController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
                 
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -204,14 +204,14 @@ class UserController {
         def result = new LinkedHashMap()
         if(session.user != null){
             result.done = false
-            result.errs = 'user already connected'    
+            result.errs = 8    
         }else if (user) {
             session.user = user
             result.done = true
             result.errs = null
         }else {
             result.done = false
-            result.errs = "User not found"
+            result.errs = 2
         }
         render result as JSON
     }

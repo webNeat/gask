@@ -39,11 +39,11 @@ class PageController {
         def user = User.get(session.user.id)        
         if (pageInstance == null) {
             result.done = false
-            result.errs = 'page not found'
+            result.errs = 14
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 if(pageInstance.save(flush:true)){
@@ -51,15 +51,15 @@ class PageController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
 
@@ -71,11 +71,11 @@ class PageController {
         def user = User.get(session.user.id)        
         if (pageInstance == null) {
             result.done = false
-            result.errs = 'page not found'
+            result.errs = 14
         }
         if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 pageInstance.title = request.JSON.title
@@ -85,15 +85,15 @@ class PageController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'not updated'
+                    result.errs = 12
                 }
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -105,10 +105,10 @@ class PageController {
         def result = new LinkedHashMap()
         if (pageInstance == null) {
             result.done = false
-            result.errs = 'page not found'
+            result.errs = 14
         }else if(user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 if(pageInstance.delete(flush:true)){
@@ -116,15 +116,15 @@ class PageController {
                     result.errs = null
                 }else{
                     result.done = false
-                    result.errs = 'page no deleted'
+                    result.errs = 15
                 }
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }   
