@@ -1,55 +1,3 @@
-UserController
-	index: GET
-		array of all users
-		// don't send the password !
-	get(userId): GET
-		{user} or {id: -1} if not found
-		// don't send the password !
-	names : GET
-		array of {id, name} of every user
-	current(): GET
-		{connected user} or {id: -1} if not logged in
-		// don't send the password !
-	password: POST
-		params: {userId}
-		// if the user is the logged in user
-		{pass: md5(password)}
-	privileges(userId): GET
-		array of privileges
-	badges(userId): GET
-		array of badges
-	questions(userId): GET
-		array of questions
-	answers(userId): GET
-		array of answers
-	comments(userId): GET
-		array of comments
-	tags(userId): GET
-		array of tags
-	notifications(userId): GET
-		array of notifications
-	votes(userId): GET
-		array of votes
-	create: POST
-		params : {name, email, password(hashed)}
-		// fill all other fields with defaut values
-		{done: bool, errs: array}
-	update(userId): PUT
-		params : { name, real_name, password(hashed), email, photo, bio, birthday, website, location }
-		{done: bool, errs: array}
-	makeAdmin(userId): PUT
-		params: {adminId, adminPass(hashed)}
-		// check if a corresponding admin exists
-		{done: bool, errs: array}
-	login: POST
-		params: {email, password(hashed)}
-		{done: bool, errs: array}
-	logout: POST
-		{done: bool, errs: array}
-	delete(userId): DELETE
-		params: {adminId, adminPass(hashed)}
-		{done: bool, errs: array}
-
 QuestionController
 	index: GET
 		array of all questions
@@ -175,6 +123,200 @@ CommentController
 		params: {adminId, adminPass(hashed)}
 		{done: bool, errs: array}
 
+
+
+PageController
+	index: GET
+		array of all pages
+	get(pageId): GET
+		{page} or {id: -1} if not found
+	byTitle(pageName): GET
+		{page} or {id: -1} if not found
+	titles: GET
+		array of all {id, title}
+	create: POST
+		params : {title, content, adminId, adminPass(hashed)}
+		// check if the user is an admin
+		// and check the password
+		{done: bool, errs: array}
+	update(pageId): PUT
+		params : {title, content, adminId, adminPass(hashed)}
+		// check if the user is an admin
+		// and check the password
+		{done: bool, errs: array}
+	delete(pageId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+
+
+PrivilegeCategoryController
+	index: GET
+		array of all privilege categories
+	get(id): GET /../get/{id}
+		{name, icon, privileges:array}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+UserController
+	index: GET
+		array of all users
+		// don't send the password !
+	get(userId): GET
+		{user} or {id: -1} if not found
+		// don't send the password !
+	names : GET
+		array of {id, name} of every user
+	current(): GET
+		{connected user} or {id: -1} if not logged in
+		// don't send the password !
+	password: POST
+		params: {userId}
+		// if the user is the logged in user
+		{pass: md5(password)}
+	privileges(userId): GET
+		array of privileges
+	badges(userId): GET
+		array of badges
+	questions(userId): GET
+		array of questions
+	answers(userId): GET
+		array of answers
+	comments(userId): GET
+		array of comments
+	tags(userId): GET
+		array of tags
+	notifications(userId): GET
+		array of notifications
+	votes(userId): GET
+		array of votes
+	create: POST
+		params : {name, email, password(hashed)}
+		// fill all other fields with defaut values
+		{done: bool, errs: array}
+	update(userId): PUT
+		params : { name, real_name, password(hashed), email, photo, bio, birthday, website, location }
+		{done: bool, errs: array}
+	makeAdmin(userId): PUT
+		params: {adminId, adminPass(hashed)}
+		// check if a corresponding admin exists
+		{done: bool, errs: array}
+	login: POST
+		params: {email, password(hashed)}
+		{done: bool, errs: array}
+	logout: POST
+		{done: bool, errs: array}
+	delete(userId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
+
+
+
+
 TagController
 	index: GET
 		array of all tags
@@ -203,47 +345,6 @@ TagController
 		params: {adminId, adminPass(hashed)}
 		{done: bool, errs: array}
 
-PageController
-	index: GET
-		array of all pages
-	get(pageId): GET
-		{page} or {id: -1} if not found
-	byTitle(pageName): GET
-		{page} or {id: -1} if not found
-	titles: GET
-		array of all {id, title}
-	create: POST
-		params : {title, content, adminId, adminPass(hashed)}
-		// check if the user is an admin
-		// and check the password
-		{done: bool, errs: array}
-	update(pageId): PUT
-		params : {title, content, adminId, adminPass(hashed)}
-		// check if the user is an admin
-		// and check the password
-		{done: bool, errs: array}
-	delete(pageId): DELETE
-		params: {adminId, adminPass(hashed)}
-		{done: bool, errs: array}
-
-NotificationController
-	index: GET
-	array of all notifications
-
-PrivilegeCategoryController
-	index: GET
-		array of all privilege categories
-	get(id): GET /../get/{id}
-		{name, icon, privileges:array}
-
-PrivilegeController
-	index: GET
-		[{name, descr, rep, categories:array, users:array}]
-	update(id): PUT /../update/{id}
-		params: {adminId, adminPass(hashed), reputation}
-		{done: bool, errs: array}
-	get(id): GET /../get/{id}
-		{name, description, reputation, category:{id}}
 
 BadgeCategoryController
 	index: GET
@@ -256,3 +357,16 @@ BadgeController
 		[{name, descr, category, users:array}]
 	get(id): GET /../get/{id}
 		{name, description, category:{id}}
+
+NotificationController
+	index: GET
+	array of all notifications
+
+PrivilegeController
+	index: GET
+		[{name, descr, rep, categories:array, users:array}]
+	update(id): PUT /../update/{id}
+		params: {adminId, adminPass(hashed), reputation}
+		{done: bool, errs: array}
+	get(id): GET /../get/{id}
+		{name, description, reputation, category:{id}}

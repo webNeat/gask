@@ -4,101 +4,52 @@ package fr.isima.gask
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.converters.JSON
+import java.util.LinkedHashMap
 
 @Transactional(readOnly = true)
 class PrivilegeController {
+  static allowedMethods = [update : "PUT", index : "GET", get : "GET"]
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Privilege.list(params), model:[privilegeInstanceCount: Privilege.count()]
+    def index() {
+           render Privilege.list() as JSON
     }
-
-    def show(Privilege privilegeInstance) {
-        respond privilegeInstance
+    def get(int id){
+        def privilege = Privilege.get(id)
+        def result = new LinkedHashMap()
+        if(privilege == null){
+            result.id = -1
+        }else{
+            result = privilege
+        }
+        render result as JSON
     }
-
-    def create() {
-        respond new Privilege(params)
-    }
-
     @Transactional
-    def save(Privilege privilegeInstance) {
+    def update(int id){
+        def privilegeInstance = Privilege.get(id)
+        def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
         if (privilegeInstance == null) {
-            notFound()
-            return
+            result.done = false
+            result.errs = 'privilege not found'
         }
-
-        if (privilegeInstance.hasErrors()) {
-            respond privilegeInstance.errors, view:'create'
-            return
-        }
-
-        privilegeInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'privilege.label', default: 'Privilege'), privilegeInstance.id])
-                redirect privilegeInstance
+        if(user == null){
+            result.done = false
+            result.errs = 'no user connected'
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                privilegeInstance.reputation = request.JSON.reputation
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 'User Not admin'
             }
-            '*' { respond privilegeInstance, [status: CREATED] }
+        }else{
+            result.done = false
+            result.errs = 'params not corresponding to Current User'   
         }
+        render result as JSON
     }
-
-    def edit(Privilege privilegeInstance) {
-        respond privilegeInstance
-    }
-
-    @Transactional
-    def update(Privilege privilegeInstance) {
-        if (privilegeInstance == null) {
-            notFound()
-            return
-        }
-
-        if (privilegeInstance.hasErrors()) {
-            respond privilegeInstance.errors, view:'edit'
-            return
-        }
-
-        privilegeInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Privilege.label', default: 'Privilege'), privilegeInstance.id])
-                redirect privilegeInstance
-            }
-            '*'{ respond privilegeInstance, [status: OK] }
-        }
-    }
-
-    @Transactional
-    def delete(Privilege privilegeInstance) {
-
-        if (privilegeInstance == null) {
-            notFound()
-            return
-        }
-
-        privilegeInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Privilege.label', default: 'Privilege'), privilegeInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'privilege.label', default: 'Privilege'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+ 
 }

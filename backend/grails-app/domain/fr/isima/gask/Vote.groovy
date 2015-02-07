@@ -6,7 +6,5 @@ class Vote {
 
 	static belongsTo = [ user : User ]
     static constraints = {
-    	createdAt blank : false, nullable : false
-
     }
 }
