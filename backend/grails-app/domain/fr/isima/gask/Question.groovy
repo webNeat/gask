@@ -6,8 +6,8 @@ class Question {
 	String content
 	Date createdAt = new Date()
 	Date modifiedAt = new Date()
-	boolean hidden
-	Integer views
+	boolean hidden = false
+	Integer views = 0
 
 	static hasMany = [ tags : Tag, answers : Answer, votes : Vote, comments : Comment ]
 	static hasOne = [ bestAnswer : Answer ]
@@ -19,9 +19,5 @@ class Question {
     static constraints = {
 		title blank : false, nullable : false
 		content blank : false, nullable : false
-		views blank : false, nullable : false
-		hidden blank : false, nullable : false
-		createdAt blank : false, nullable : false
-		modifiedAt blank : false, nullable : false
     }
 }

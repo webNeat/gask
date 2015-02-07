@@ -12,7 +12,7 @@ class PrivilegeController {
   static allowedMethods = [update : "PUT", index : "GET", get : "GET"]
 
     def index() {
-           render Privilege.list() as JSON
+        render Privilege.list() as JSON
     }
     def get(int id){
         def privilege = Privilege.get(id)
@@ -39,8 +39,13 @@ class PrivilegeController {
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 privilegeInstance.reputation = request.JSON.reputation
-                result.done = true
-                result.errs = null
+                if(privilegeInstance.save(flush:true){
+                    result.done = true
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 'privilege not updated'
+                }
             }else{
                 result.done = false
                 result.errs = 'User Not admin'

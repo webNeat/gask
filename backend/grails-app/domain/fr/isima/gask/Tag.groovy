@@ -4,8 +4,6 @@ class Tag {
 	String name
 	String content
 
-	//Question questionOwner
-	//User userOwner
 	static belongsTo = [ Question, User]
 	static hasMany = [ questions : Question, users : User ]
 	

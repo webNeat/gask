@@ -138,7 +138,6 @@ class UserController {
 
 
         userInstance.properties = request.JSON
-        println userInstance.name
         
         if (!userInstance.save(flush:true)) {
             result.done = false

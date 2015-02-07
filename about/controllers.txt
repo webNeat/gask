@@ -23,13 +23,10 @@ QuestionController
 		// and check the password
 		{done: bool, errs: array}
 	upVote(questionId): PUT
-		params: {userId, userPass(hashed)}
 		// check if user have the privilege
 		// check if the user didn't already voted this question
-		// check the password
 		{done: bool, errs: array}
 	downVote(questionId): PUT
-		params: {userId, userPass(hashed)}
 		// check if user have the privilege
 		// check if the user didn't already voted this question
 		// check the password
