@@ -54,37 +54,39 @@ class UserController {
     }
 
     def privileges(int id){
-        def user = User.get(request.JSON.id)
-        render user.privileges as JSON   
+        def user = User.get(id)
+        render user.privileges.asList() as JSON   
         
     }
 
     def badges(int id){
-        def user = User.get(request.JSON.id)
-        render user.badges as JSON 
+        def user = User.get(id)
+        render user.badges.asList() as JSON 
     }
 
     def questions(int id){
-        def user = User.get(request.JSON.id)
-        render user.questions as JSON   
+        def user = User.get(id)
+        render user.questions.asList() as JSON   
     
     }
     
     def answers(int id){
-        def user = User.get(request.JSON.id)
-        render user.answers as JSON   
+        def user = User.get(id)
+        render user.answers.asList() as JSON   
     
     } 
 
     def comments(int id){
-        def user = User.get(request.JSON.id)
-        render user.comments as JSON   
+        def user = User.get(id)
+        render user.comments.asList() as JSON   
     
     }
 
-    def tags(int id){
-        def user = User.get(request.JSON.id)
-        render user.tags as JSON   
+    def mtags(int id){
+        def user = User.get(id)
+        if(user != null){
+            render user.tags.asList() as JSON   
+        }
     
     }
 
@@ -126,9 +128,7 @@ class UserController {
     //Done
     @Transactional
     def update(int id){
-        def userInstance = User.get(id)
-        println request.JSON
-        
+        def userInstance = User.get(id)        
         def result = new LinkedHashMap()
         if (userInstance == null) {
             result.done = false
@@ -202,7 +202,7 @@ class UserController {
     //Done
     def login() {
         def user = User.findByEmailAndPassword(request.JSON.email, request.JSON.password)
-        println user.name
+        
         def result = new LinkedHashMap()
         if(session.user != null){
             result.done = false
