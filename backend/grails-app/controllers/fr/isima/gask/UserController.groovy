@@ -6,7 +6,6 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.converters.JSON
 import java.util.LinkedHashMap
-import java.security.MessageDigest
 @Transactional(readOnly = true)
 class UserController {
 
@@ -91,14 +90,14 @@ class UserController {
     }
 
     def notifications(int id){
-        def user = User.get(request.JSON.id)
-        render user.notifications as JSON   
+        def user = User.get(id)
+        render user.notifications.asList() as JSON   
     
     }
 
     def votes(int id){
-        def user = User.get(request.JSON.id)
-        render user.votes as JSON   
+        def user = User.get(id)
+        render user.votes.asList() as JSON   
     
     }
     //Done

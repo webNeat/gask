@@ -253,6 +253,6 @@ BadgeCategoryController
 
 BadgeController
 	index: GET
-		[{name, descr, categories:array, users:array}]
+		[{name, descr, category, users:array}]
 	get(id): GET /../get/{id}
 		{name, description, category:{id}}

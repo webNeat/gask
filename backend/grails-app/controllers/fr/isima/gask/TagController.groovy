@@ -28,11 +28,11 @@ class TagController {
     }
     def questions(int id){
         def tag = Tag.get(id)
-        render tag.questions as JSON
+        render tag.questions.asList() as JSON
     }
     def users(int id){
         def tag = Tag.get(id)
-        render tag.users as JSON
+        render tag.users.asList() as JSON
     }
     //DONE
     @Transactional
