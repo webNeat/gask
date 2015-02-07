@@ -89,8 +89,13 @@ class TagController {
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 tagInstance.content = request.JSON.content
-                result.done = true
-                result.errs = null
+                if(tagInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 'not updated'
+                }
             }else{
                 result.done = false
                 result.errs = 'User Not admin'
@@ -117,7 +122,6 @@ class TagController {
             if(user.isAdmin == true){
                 removeFromFavorites(id)
                 tagInstance.delete flush:true
-                println "après 2"
                 result.done = true
                 result.errs = null
             }else{

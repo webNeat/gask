@@ -4,101 +4,129 @@ package fr.isima.gask
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-
+import grails.converters.JSON
+import java.util.LinkedHashMap
 @Transactional(readOnly = true)
 class PageController {
-
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Page.list(params), model:[pageInstanceCount: Page.count()]
+    static allowedMethods = [create : "POST", index : "GET", get : "GET", titles : "GET", update: "PUT", delete: "DELETE", byTitle : "GET"]
+    def index(){
+        render Page.list() as JSON
     }
 
-    def show(Page pageInstance) {
-        respond pageInstance
+    def get(int id){
+        def page = Page.get(id)
+        def result = new LinkedHashMap()
+        if(page == null){
+            result.id = -1
+        }else{
+            result = page
+        }
+        render result as JSON
     }
-
-    def create() {
-        respond new Page(params)
+    def titles(){
+        def titles = Page.withCriteria {
+            projections {
+                property 'id', 'id'
+                property 'title', 'title'
+            }
+        }
+        render titles as JSON
     }
-
     @Transactional
-    def save(Page pageInstance) {
+    def create(){
+        def pageInstance = new Page(request.JSON)
+        def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
         if (pageInstance == null) {
-            notFound()
-            return
+            result.done = false
+            result.errs = 'page not found'
         }
-
-        if (pageInstance.hasErrors()) {
-            respond pageInstance.errors, view:'create'
-            return
-        }
-
-        pageInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'page.label', default: 'Page'), pageInstance.id])
-                redirect pageInstance
+        if(user == null){
+            result.done = false
+            result.errs = 'no user connected'
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                if(pageInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 'not updated'
+                }
+            }else{
+                result.done = false
+                result.errs = 'User Not admin'
             }
-            '*' { respond pageInstance, [status: CREATED] }
+        }else{
+            result.done = false
+            result.errs = 'params not corresponding to Current User'   
         }
-    }
+        render result as JSON
 
-    def edit(Page pageInstance) {
-        respond pageInstance
     }
-
     @Transactional
-    def update(Page pageInstance) {
+    def update(int id){
+        def pageInstance = Page.get(id)
+        def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
         if (pageInstance == null) {
-            notFound()
-            return
+            result.done = false
+            result.errs = 'page not found'
         }
-
-        if (pageInstance.hasErrors()) {
-            respond pageInstance.errors, view:'edit'
-            return
-        }
-
-        pageInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Page.label', default: 'Page'), pageInstance.id])
-                redirect pageInstance
+        if(user == null){
+            result.done = false
+            result.errs = 'no user connected'
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                pageInstance.title = request.JSON.title
+                pageInstance.content = request.JSON.content
+                if(pageInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 'not updated'
+                }
+            }else{
+                result.done = false
+                result.errs = 'User Not admin'
             }
-            '*'{ respond pageInstance, [status: OK] }
+        }else{
+            result.done = false
+            result.errs = 'params not corresponding to Current User'   
         }
+        render result as JSON
     }
-
+     //DONE
     @Transactional
-    def delete(Page pageInstance) {
-
+    def delete(int id) {
+        def pageInstance = Page.get(id)
+        def user = User.get(session.user.id) 
+        def result = new LinkedHashMap()
         if (pageInstance == null) {
-            notFound()
-            return
-        }
-
-        pageInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Page.label', default: 'Page'), pageInstance.id])
-                redirect action:"index", method:"GET"
+            result.done = false
+            result.errs = 'page not found'
+        }else if(user == null){
+            result.done = false
+            result.errs = 'no user connected'
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                if(pageInstance.delete(flush:true)){
+                    result.done = true
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 'page no deleted'
+                }
+            }else{
+                result.done = false
+                result.errs = 'User Not admin'
             }
-            '*'{ render status: NO_CONTENT }
+        }else{
+            result.done = false
+            result.errs = 'params not corresponding to Current User'   
         }
-    }
+        render result as JSON
+    }   
 
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'page.label', default: 'Page'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
 }

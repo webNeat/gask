@@ -125,36 +125,11 @@ CommentController
 
 
 
-PageController
-	index: GET
-		array of all pages
-	get(pageId): GET
-		{page} or {id: -1} if not found
-	byTitle(pageName): GET
-		{page} or {id: -1} if not found
-	titles: GET
-		array of all {id, title}
-	create: POST
-		params : {title, content, adminId, adminPass(hashed)}
-		// check if the user is an admin
-		// and check the password
-		{done: bool, errs: array}
-	update(pageId): PUT
-		params : {title, content, adminId, adminPass(hashed)}
-		// check if the user is an admin
-		// and check the password
-		{done: bool, errs: array}
-	delete(pageId): DELETE
-		params: {adminId, adminPass(hashed)}
-		{done: bool, errs: array}
 
 
 
-PrivilegeCategoryController
-	index: GET
-		array of all privilege categories
-	get(id): GET /../get/{id}
-		{name, icon, privileges:array}
+
+
 
 
 
@@ -370,3 +345,32 @@ PrivilegeController
 		{done: bool, errs: array}
 	get(id): GET /../get/{id}
 		{name, description, reputation, category:{id}}
+
+PrivilegeCategoryController
+	index: GET
+		array of all privilege categories
+	get(id): GET /../get/{id}
+		{name, icon, privileges:array}
+
+PageController
+	index: GET
+		array of all pages
+	get(pageId): GET
+		{page} or {id: -1} if not found
+	byTitle(pageName): GET
+		{page} or {id: -1} if not found
+	titles: GET
+		array of all {id, title}
+	create: POST
+		params : {title, content, adminId, adminPass(hashed)}
+		// check if the user is an admin
+		// and check the password
+		{done: bool, errs: array}
+	update(pageId): PUT
+		params : {title, content, adminId, adminPass(hashed)}
+		// check if the user is an admin
+		// and check the password
+		{done: bool, errs: array}
+	delete(pageId): DELETE
+		params: {adminId, adminPass(hashed)}
+		{done: bool, errs: array}
