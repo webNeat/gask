@@ -39,7 +39,7 @@ class PrivilegeController {
         }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
             if(user.isAdmin == true){
                 privilegeInstance.reputation = request.JSON.reputation
-                if(privilegeInstance.save(flush:true){
+                if(privilegeInstance.save(flush:true)){
                     result.done = true
                     result.errs = null
                 }else{

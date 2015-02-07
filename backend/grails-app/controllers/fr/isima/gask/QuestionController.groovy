@@ -96,7 +96,6 @@ class QuestionController {
                     result.done = false
                     result.errs = 'not updated'
                 }
-            }
         }else{
             result.done = false
             result.errs = 'params not corresponding to Current User'   
@@ -118,7 +117,7 @@ class QuestionController {
                 questionInstance.addToVotes(vote).save(flus:true)
                 result.done = true
                 result.errs = null
-            }else if(votesCommons.value = -1){
+            }else if(votesCommons.value == -1){
                 votesCommons.value = 1
                 votesCommons.save(flus:true)
                 result.done = true
@@ -148,7 +147,7 @@ class QuestionController {
                 questionInstance.addToVotes(vote).save(flus:true)
                 result.done = true
                 result.errs = null
-            }else if(votesCommons.value = 1){
+            }else if(votesCommons.value == 1){
                 votesCommons.value = -1
                 votesCommons.save(flus:true)
                 result.done = true
@@ -184,8 +183,7 @@ class QuestionController {
                     result.done = false
                     result.errs = 'not updated'
                 }
-            }
-        }else{
+            }else{
             result.done = false
             result.errs = 'params not corresponding to Current User'   
         }
