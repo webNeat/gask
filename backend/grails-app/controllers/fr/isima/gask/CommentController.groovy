@@ -4,101 +4,198 @@ package fr.isima.gask
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.converters.JSON
+import java.util.LinkedHashMap
 
 @Transactional(readOnly = true)
 class CommentController {
-
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Comment.list(params), model:[commentInstanceCount: Comment.count()]
+    static allowedMethods = [index : "GET", get : "GET", votes : "GET", create : "POST", upVote : "PUT", downVote : "PUT", hide : "DELETE", update: "PUT", delete: "DELETE"]
+    def index(){
+        render Comment.list() as JSON
     }
-
-    def show(Comment commentInstance) {
-        respond commentInstance
+    def get(int id){
+        def comment = Comment.get(id)
+        def result = new LinkedHashMap()
+        if(comment == null){
+            result.id = -1
+        }else{
+            result = comment
+        }
+        render result as JSON
     }
-
-    def create() {
-        respond new Comment(params)
+    def votes(int id){
+        def comment = Comment.get(id)
+        render comment.votes.asList() as JSON
     }
-
     @Transactional
-    def save(Comment commentInstance) {
+    def create(){
+        def commentInstance = new Comment()
+        def user = User.get(session.user.id) 
+        commentInstance.properties = request.JSON
+        def result = new LinkedHashMap()
         if (commentInstance == null) {
-            notFound()
-            return
-        }
-
-        if (commentInstance.hasErrors()) {
-            respond commentInstance.errors, view:'create'
-            return
-        }
-
-        commentInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'comment.label', default: 'Comment'), commentInstance.id])
-                redirect commentInstance
+            result.done = false
+            result.errs = null
+        }else if(user != null){
+            if (!commentInstance.save(flush:true)) {
+                result.done = false
+                result.errs = commentInstance.errors
+            }else{               
+                user.addToComments(commentInstance).save(flus:true)
+                result.done = true
+                result.errs = null
             }
-            '*' { respond commentInstance, [status: CREATED] }
+        }else{
+            result.done = false
+            result.errs = 'no user connected'
         }
+        render result as JSON
     }
-
-    def edit(Comment commentInstance) {
-        respond commentInstance
-    }
-
     @Transactional
-    def update(Comment commentInstance) {
+    def update(int id){
+        def commentInstance = Comment.get(id)
+        def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
         if (commentInstance == null) {
-            notFound()
-            return
+            result.done = false
+            result.errs = 'comment not found'
         }
-
-        if (commentInstance.hasErrors()) {
-            respond commentInstance.errors, view:'edit'
-            return
+        if(user == null){
+            result.done = false
+            result.errs = 'no user connected'
+        }else if((commentInstance.author.id == request.JSON.userId && commentInstance.author.password == request.JSON.password) || user.isAdmin == true ){
+                commentInstance.content = request.JSON.content
+                if(commentInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 'not updated'
+                }
+        }else{
+            result.done = false
+            result.errs = 'params not corresponding to Current User'   
         }
-
-        commentInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Comment.label', default: 'Comment'), commentInstance.id])
-                redirect commentInstance
-            }
-            '*'{ respond commentInstance, [status: OK] }
-        }
+        render result as JSON
     }
-
     @Transactional
-    def delete(Comment commentInstance) {
+    def upVote(int id){
+        def user = User.get(session.user.id)        
+        def privilege = user.privileges.asList()
+        def votesUser = user.votes.asList()
+        def votesComment = Comment.get(id).votes.asList()
+        def commentInstance = Comment.get(id)
+        def result = new LinkedHashMap()
+         if(privileges != null){
+            def votesCommons = votesUser.intersect(votesComment)
+            if(votesCommons == null){
+                def vote = new Vote()
+                vote.value  = 1
+                user.addToVotes(vote).save(flus:true)
+                commentInstance.addToVotes(vote).save(flus:true)
+                result.done = true
+                result.errs = null
+            }else if(votesCommons.value == -1){
+                votesCommons.value = 1
+                votesCommons.save(flus:true)
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 'user have already upVoted'
+            }
+        }else{
+                result.done = false
+                result.errs = 'user don t have privilege to upVote'
+        }
+        render result as JSON
+    }
+    @Transactional
+    def downVote(int id){
+        def user = User.get(session.user.id)        
+        def privilege = user.privileges.asList()
+        def votesUser = user.votes.asList()
+        def votesComment = Comment.get(id).votes.asList()
+        def commentInstance = Comment.get(id)
+        def result = new LinkedHashMap()
+         if(privileges != null){
+            def votesCommons = votesUser.intersect(votesComment)
+            if(votesCommons == null){
+                def vote = new Vote()
+                vote.value  = -1
+                user.addToVotes(vote).save(flus:true)
+                commentInstance.addToVotes(vote).save(flus:true)
+                result.done = true
+                result.errs = null
+            }else if(votesCommons.value == 1){
+                votesCommons.value = -1
+                votesCommons.save(flus:true)
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 'user have already upVoted'
+            }
+        }else{
+                result.done = false
+                result.errs = 'user don t have privilege to upVote'
+        }
+        render result as JSON 
 
+    }
+    @Transactional
+    def hide(int id){
+        def commentInstance = Comment.get(id)
+        def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
         if (commentInstance == null) {
-            notFound()
-            return
+            result.done = false
+            result.errs = 'comment not found'
         }
-
-        commentInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Comment.label', default: 'Comment'), commentInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
+        if(user == null){
+            result.done = false
+            result.errs = 'no user connected'
+        }else if((commentInstance.author.id == request.JSON.userId && commentInstance.author.password == request.JSON.userPass) || user.isAdmin == true ){
+                commentInstance.hidden = true
+                if(commentInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 'not updated'
+                }
+            }else{
+            result.done = false
+            result.errs = 'params not corresponding to Current User'   
         }
+        render result as JSON   
     }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'comment.label', default: 'Comment'), params.id])
-                redirect action: "index", method: "GET"
+    @Transactional
+    def delete(int id) {
+        def commentInstance = comment.get(id)
+        def user = User.get(session.user.id) 
+        def result = new LinkedHashMap()
+        if (commentInstance == null) {
+            result.done = false
+            result.errs = 'comment not found'
+        }else if(user == null){
+            result.done = false
+            result.errs = 'no user connected'
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                commentInstance.author.removeFromComments(commentInstance)
+                commentInstance.delete flush:true
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 'User Not admin'
             }
-            '*'{ render status: NOT_FOUND }
+        }else{
+            result.done = false
+            result.errs = 'params not corresponding to Current User'   
         }
-    }
+        render result as JSON
+    }   
+
 }

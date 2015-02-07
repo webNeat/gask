@@ -86,7 +86,7 @@ class QuestionController {
         if(user == null){
             result.done = false
             result.errs = 'no user connected'
-        }else if(user.id == request.JSON.userId && user.password == request.JSON.password){
+        }else if((questionInstance.author.id == request.JSON.userId && questionInstance.author.password == request.JSON.password) || user.isAdmin == true ){
             //user ==  admin
                 questionInstance.content = request.JSON.content
                 if(questionInstance.save(flush:true)){
@@ -102,11 +102,13 @@ class QuestionController {
         }
         render result as JSON
     }
+    @Transactional
     def upVote(int id){
         def user = User.get(session.user.id)        
         def privilege = user.privileges.asList()
         def votesUser = user.votes.asList()
         def votesQuestion = Question.get(id).votes.asList()
+        def questionInstance = Question.get(id)
         def result = new LinkedHashMap()
          if(privileges != null){
             def votesCommons = votesUser.intersect(votesQuestion)
@@ -132,11 +134,13 @@ class QuestionController {
         }
         render result as JSON
     }
+    @Transactional
     def downVote(int id){
         def user = User.get(session.user.id)        
         def privilege = user.privileges.asList()
         def votesUser = user.votes.asList()
         def votesQuestion = Question.get(id).votes.asList()
+        def questionInstance = Question.get(id)
         def result = new LinkedHashMap()
          if(privileges != null){
             def votesCommons = votesUser.intersect(votesQuestion)
@@ -163,6 +167,7 @@ class QuestionController {
         render result as JSON 
 
     }
+    @Transactional
     def hide(int id){
         def questionInstance = Question.get(id)
         def result = new LinkedHashMap()
@@ -174,7 +179,7 @@ class QuestionController {
         if(user == null){
             result.done = false
             result.errs = 'no user connected'
-        }else if(user.id == request.JSON.userId && user.password == request.JSON.userPass){
+        }else if((questionInstance.author.id == request.JSON.userId && questionInstance.author.password == request.JSON.userPass) || user.isAdmin == true ){
                 questionInstance.hidden = true
                 if(questionInstance.save(flush:true)){
                     result.done = true    

@@ -1,44 +1,37 @@
-QuestionController
+
+CommentController
 	index: GET
-		array of all questions
-	get(questionId): GET
-		{question} or {id: -1} if not found
-	titles : GET
-		array of {id, title} of every question
-	answers(questionId): GET
-		array of answers
-	comments(questionId): GET
-		array of comments
-	tags(questionId): GET
-		array of tags
-	votes(questionId): GET
+		array of all comments
+	get(commentId): GET
+		{comment} or {id: -1} if not found
+	votes(commentId): GET
 		array of votes
 	create: POST
-		params : {title, content, tags:array of ids}
+		params : {content}
 		// the author is the current user
 		{done: bool, errs: array}
-	update(questionId): PUT
-		params : {title, content, tags:array, userId, password(hashed)}
+	update(commentId): PUT
+		params : {content, userId, password(hashed)}
 		// check if the user is the author or an admin
 		// and check the password
 		{done: bool, errs: array}
-	upVote(questionId): PUT
+	upVote(commentId): PUT
 		// check if user have the privilege
-		// check if the user didn't already voted this question
+		// check if the user didn't already voted this comment
 		{done: bool, errs: array}
-	downVote(questionId): PUT
+	downVote(commentId): PUT
 		// check if user have the privilege
-		// check if the user didn't already voted this question
-		// check the password
+		// check if the user didn't already voted this comment
 		{done: bool, errs: array}
-	hide(questionId): DELETE
+	hide(commentId): DELETE
 		params: {userId, userPass(hashed)}
 		// check if user is the owner or an admin
 		// set hidden to true
 		{done: bool, errs: array}
-	delete(questionId): DELETE
+	delete(commentId): DELETE
 		params: {adminId, adminPass(hashed)}
 		{done: bool, errs: array}
+
 
 AnswerController
 	index: GET
@@ -83,154 +76,49 @@ AnswerController
 		params: {adminId, adminPass(hashed)}
 		{done: bool, errs: array}
 
-CommentController
+
+
+QuestionController
 	index: GET
-		array of all comments
-	get(commentId): GET
-		{comment} or {id: -1} if not found
-	votes(commentId): GET
+		array of all questions
+	get(questionId): GET
+		{question} or {id: -1} if not found
+	titles : GET
+		array of {id, title} of every question
+	answers(questionId): GET
+		array of answers
+	comments(questionId): GET
+		array of comments
+	tags(questionId): GET
+		array of tags
+	votes(questionId): GET
 		array of votes
 	create: POST
-		params : {content}
+		params : {title, content, tags:array of ids}
 		// the author is the current user
 		{done: bool, errs: array}
-	update(commentId): PUT
-		params : {content, userId, password(hashed)}
+	update(questionId): PUT
+		params : {title, content, tags:array, userId, password(hashed)}
 		// check if the user is the author or an admin
 		// and check the password
 		{done: bool, errs: array}
-	upVote(commentId): PUT
-		params: {userId, userPass(hashed)}
+	upVote(questionId): PUT
 		// check if user have the privilege
-		// check if the user didn't already voted this comment
+		// check if the user didn't already voted this question
+		{done: bool, errs: array}
+	downVote(questionId): PUT
+		// check if user have the privilege
+		// check if the user didn't already voted this question
 		// check the password
 		{done: bool, errs: array}
-	downVote(commentId): PUT
-		params: {userId, userPass(hashed)}
-		// check if user have the privilege
-		// check if the user didn't already voted this comment
-		// check the password
-		{done: bool, errs: array}
-	hide(commentId): DELETE
+	hide(questionId): DELETE
 		params: {userId, userPass(hashed)}
 		// check if user is the owner or an admin
 		// set hidden to true
 		{done: bool, errs: array}
-	delete(commentId): DELETE
+	delete(questionId): DELETE
 		params: {adminId, adminPass(hashed)}
 		{done: bool, errs: array}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
