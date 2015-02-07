@@ -11,9 +11,11 @@ import java.util.LinkedHashMap
 class TagController {
 
     static allowedMethods = [create : "POST", removeFromFavorites  : "POST", addToFavorites : "POST", index : "GET", get : "GET", questions : "GET", users : "GET", save: "POST", update: "PUT", delete: "DELETE"]
+    //DONE
     def index(){
         render Tag.list() as JSON
     }
+    //DONE
     def get(int id){
         def tag = Tag.get(id)
         def result = new LinkedHashMap()
@@ -26,19 +28,21 @@ class TagController {
     }
     def questions(int id){
         def tag = Tag.get(id)
-        render tag.questions as JSON
+        render tag.questions.asList() as JSON
     }
     def users(int id){
         def tag = Tag.get(id)
-        render tag.users as JSON
+        render tag.users.asList() as JSON
     }
-
+    //DONE
+    @Transactional
     def addToFavorites(int id){
-        def user = session.user
+        def user = User.get(session.user.id)
         def result = new LinkedHashMap()
+
         if(user != null){
             def tag = Tag.get(id)
-            if(!user.addToTags(tag).save()){
+            if(!user.addToTags(tag).save(flush:true)){
                 result.done = false
                 result.errs = user.errors
             }else{
@@ -47,13 +51,14 @@ class TagController {
             }
         }else{
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }
         render result as JSON
     }
-
+    //Done
+    @Transactional
     def removeFromFavorites(int id){
-        def user = session.user
+        def user = User.get(session.user.id)
         def tag = Tag.get(id)
         def result = new LinkedHashMap()
         if(!user.removeFromTags(tag)){
@@ -68,47 +73,68 @@ class TagController {
    
 
     }
+    //Done
     @Transactional
     def update(int id){
         def tagInstance = Tag.get(id)
         def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
         if (tagInstance == null) {
             result.done = false
-            result.errs = null
-            render result as JSON
-           return
+            result.errs = 17
         }
-        def user = session.user
-        if(user.isAdmin == true && user.password == request.JSON.adminPass && user.id == request.JSON.adminId){
-           tagInstance.content = request.JSON.content
-        }
-        if (!tagInstance.save(flush:true)) {
+        if(user == null){
             result.done = false
-            result.errs = tagInstance.errors
-            render result as JSON
-            return
+            result.errs = 1
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                tagInstance.content = request.JSON.content
+                if(tagInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 12
+                }
+            }else{
+                result.done = false
+                result.errs = 6
+            }
+        }else{
+            result.done = false
+            result.errs = 3   
         }
-
-        result.done = true
-        result.errs = null
         render result as JSON
     }
+    //DONE
     @Transactional
     def delete(int id) {
         def tagInstance = Tag.get(id)
-        def user = session.user
+        def user = User.get(session.user.id) 
         def result = new LinkedHashMap()
         if (tagInstance == null) {
             result.done = false
-            result.errs = tagInstance.errors
-        }else if(user.isAdmin == true && user.password == request.JSON.adminPass && user.id == request.JSON.adminId){
-            tagInstance.delete flush:true
-            result.done = true
-            result.errs = null
+            result.errs = 17
+        }else if(user == null){
+            result.done = false
+            result.errs = 1
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                removeFromFavorites(id)
+                tagInstance.delete flush:true
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 6
+            }
+        }else{
+            result.done = false
+            result.errs = 3   
         }
-
         render result as JSON
-    }    
+    }   
+    //DONE 
     @Transactional
     def create(){
         def tagInstance = new Tag(request.JSON)

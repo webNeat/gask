@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="6" failures="1" hostname="zaini" name="fr.isima.gask.PrivilegeControllerSpec" tests="7" time="1.058" timestamp="2015-02-07T18:22:02">
+  <properties />
+  <testcase classname="fr.isima.gask.PrivilegeControllerSpec" name="Test the index action returns the correct model" time="0.441">
+    <failure message="Condition not satisfied:&#xa;&#xa;model.privilegeInstanceCount == 0&#xa;|     |                      |&#xa;[:]   null                   false&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.privilegeInstanceCount == 0
+|     |                      |
+[:]   null                   false
+
+	at fr.isima.gask.PrivilegeControllerSpec.Test the index action returns the correct model(PrivilegeControllerSpec.groovy:25)
+</failure>
+  </testcase>
+  <testcase classname="fr.isima.gask.PrivilegeControllerSpec" name="Test the create action returns the correct model" time="0.099">
+    <error message="No signature of method: fr.isima.gask.PrivilegeController.create() is applicable for argument types: () values: []&#xa;Possible solutions: update(), update(int), get(), grep(), chain(java.util.Map), get(int)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.PrivilegeController.create() is applicable for argument types: () values: []
+Possible solutions: update(), update(int), get(), grep(), chain(java.util.Map), get(int)
+	at fr.isima.gask.PrivilegeControllerSpec.Test the create action returns the correct model(PrivilegeControllerSpec.groovy:30)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.PrivilegeControllerSpec" name="Test the save action correctly persists an instance" time="0.1">
+    <error message="No signature of method: fr.isima.gask.PrivilegeController.save() is applicable for argument types: (fr.isima.gask.Privilege) values: [fr.isima.gask.Privilege : (unsaved)]&#xa;Possible solutions: wait(), any(), wait(long), raw(java.lang.Object), each(groovy.lang.Closure), any(groovy.lang.Closure)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.PrivilegeController.save() is applicable for argument types: (fr.isima.gask.Privilege) values: [fr.isima.gask.Privilege : (unsaved)]
+Possible solutions: wait(), any(), wait(long), raw(java.lang.Object), each(groovy.lang.Closure), any(groovy.lang.Closure)
+	at fr.isima.gask.PrivilegeControllerSpec.Test the save action correctly persists an instance(PrivilegeControllerSpec.groovy:43)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.PrivilegeControllerSpec" name="Test that the show action returns the correct model" time="0.095">
+    <error message="No signature of method: fr.isima.gask.PrivilegeController.show() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: raw(java.lang.Object), wait(), get(), any(), dump(), find()" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.PrivilegeController.show() is applicable for argument types: (null) values: [null]
+Possible solutions: raw(java.lang.Object), wait(), get(), any(), dump(), find()
+	at fr.isima.gask.PrivilegeControllerSpec.Test that the show action returns the correct model(PrivilegeControllerSpec.groovy:64)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.PrivilegeControllerSpec" name="Test that the edit action returns the correct model" time="0.09">
+    <error message="No signature of method: fr.isima.gask.PrivilegeController.edit() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: wait(), wait(long), get(), wait(long, int), get(int), each(groovy.lang.Closure)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.PrivilegeController.edit() is applicable for argument types: (null) values: [null]
+Possible solutions: wait(), wait(long), get(), wait(long, int), get(int), each(groovy.lang.Closure)
+	at fr.isima.gask.PrivilegeControllerSpec.Test that the edit action returns the correct model(PrivilegeControllerSpec.groovy:80)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.PrivilegeControllerSpec" name="Test the update action performs an update on a valid domain instance" time="0.071">
+    <error message="No signature of method: fr.isima.gask.PrivilegeController.update() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: update(), update(int), get(), use([Ljava.lang.Object;), split(groovy.lang.Closure), putAt(java.lang.String, java.lang.Object)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.PrivilegeController.update() is applicable for argument types: (null) values: [null]
+Possible solutions: update(), update(int), get(), use([Ljava.lang.Object;), split(groovy.lang.Closure), putAt(java.lang.String, java.lang.Object)
+	at fr.isima.gask.PrivilegeControllerSpec.Test the update action performs an update on a valid domain instance(PrivilegeControllerSpec.groovy:98)
+</error>
+  </testcase>
+  <testcase classname="fr.isima.gask.PrivilegeControllerSpec" name="Test that the delete action deletes an instance if it exists" time="0.073">
+    <error message="No signature of method: fr.isima.gask.PrivilegeController.delete() is applicable for argument types: (null) values: [null]&#xa;Possible solutions: get(), update(), every(), sleep(long), get(int), update(int)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.PrivilegeController.delete() is applicable for argument types: (null) values: [null]
+Possible solutions: get(), update(), every(), sleep(long), get(int), update(int)
+	at fr.isima.gask.PrivilegeControllerSpec.Test that the delete action deletes an instance if it exists(PrivilegeControllerSpec.groovy:130)
+</error>
+  </testcase>
+  <system-out><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-out>
+  <system-err><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-err>
+</testsuite>

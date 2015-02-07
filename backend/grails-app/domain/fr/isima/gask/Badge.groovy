@@ -3,7 +3,7 @@ package fr.isima.gask
 class Badge {
 	String name
 	String description
-	User userOwner
+	
 	static belongsTo = [ BadgeCategory, User]
 	static hasMany = [ users : User ]
    

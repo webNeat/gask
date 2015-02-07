@@ -1,0 +1,85 @@
+Testsuite: fr.isima.gask.BadgeCategoryControllerSpec
+Tests run: 7, Failures: 1, Errors: 6, Time elapsed: 0,675 sec
+------------- Standard Output ---------------
+--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+------------- ---------------- ---------------
+
+Testcase: Test the index action returns the correct model took 0,297 sec
+	FAILED
+Condition not satisfied:
+
+model.badgeCategoryInstanceCount == 0
+|     |                          |
+[:]   null                       false
+
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.badgeCategoryInstanceCount == 0
+|     |                          |
+[:]   null                       false
+
+	at fr.isima.gask.BadgeCategoryControllerSpec.Test the index action returns the correct model(BadgeCategoryControllerSpec.groovy:25)
+
+Testcase: Test the create action returns the correct model took 0,057 sec
+	Caused an ERROR
+No signature of method: fr.isima.gask.BadgeCategoryController.create() is applicable for argument types: () values: []
+Possible solutions: get(), grep(), chain(java.util.Map), get(int), raw(java.lang.Object), render(groovy.lang.Closure)
+groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeCategoryController.create() is applicable for argument types: () values: []
+Possible solutions: get(), grep(), chain(java.util.Map), get(int), raw(java.lang.Object), render(groovy.lang.Closure)
+	at fr.isima.gask.BadgeCategoryControllerSpec.Test the create action returns the correct model(BadgeCategoryControllerSpec.groovy:30)
+
+Testcase: Test the save action correctly persists an instance took 0,031 sec
+	Caused an ERROR
+No signature of method: fr.isima.gask.BadgeCategoryController.save() is applicable for argument types: (fr.isima.gask.BadgeCategory) values: [fr.isima.gask.BadgeCategory : (unsaved)]
+Possible solutions: wait(), any(), wait(long), raw(java.lang.Object), each(groovy.lang.Closure), any(groovy.lang.Closure)
+groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeCategoryController.save() is applicable for argument types: (fr.isima.gask.BadgeCategory) values: [fr.isima.gask.BadgeCategory : (unsaved)]
+Possible solutions: wait(), any(), wait(long), raw(java.lang.Object), each(groovy.lang.Closure), any(groovy.lang.Closure)
+	at fr.isima.gask.BadgeCategoryControllerSpec.Test the save action correctly persists an instance(BadgeCategoryControllerSpec.groovy:43)
+
+Testcase: Test that the show action returns the correct model took 0,028 sec
+	Caused an ERROR
+No signature of method: fr.isima.gask.BadgeCategoryController.show() is applicable for argument types: (null) values: [null]
+Possible solutions: raw(java.lang.Object), wait(), get(), any(), dump(), find()
+groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeCategoryController.show() is applicable for argument types: (null) values: [null]
+Possible solutions: raw(java.lang.Object), wait(), get(), any(), dump(), find()
+	at fr.isima.gask.BadgeCategoryControllerSpec.Test that the show action returns the correct model(BadgeCategoryControllerSpec.groovy:64)
+
+Testcase: Test that the edit action returns the correct model took 0,024 sec
+	Caused an ERROR
+No signature of method: fr.isima.gask.BadgeCategoryController.edit() is applicable for argument types: (null) values: [null]
+Possible solutions: wait(), wait(long), get(), wait(long, int), get(int), each(groovy.lang.Closure)
+groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeCategoryController.edit() is applicable for argument types: (null) values: [null]
+Possible solutions: wait(), wait(long), get(), wait(long, int), get(int), each(groovy.lang.Closure)
+	at fr.isima.gask.BadgeCategoryControllerSpec.Test that the edit action returns the correct model(BadgeCategoryControllerSpec.groovy:80)
+
+Testcase: Test the update action performs an update on a valid domain instance took 0,063 sec
+	Caused an ERROR
+No signature of method: fr.isima.gask.BadgeCategoryController.update() is applicable for argument types: (null) values: [null]
+Possible solutions: get(), use([Ljava.lang.Object;), split(groovy.lang.Closure), putAt(java.lang.String, java.lang.Object), isCase(java.lang.Object)
+groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeCategoryController.update() is applicable for argument types: (null) values: [null]
+Possible solutions: get(), use([Ljava.lang.Object;), split(groovy.lang.Closure), putAt(java.lang.String, java.lang.Object), isCase(java.lang.Object)
+	at fr.isima.gask.BadgeCategoryControllerSpec.Test the update action performs an update on a valid domain instance(BadgeCategoryControllerSpec.groovy:98)
+
+Testcase: Test that the delete action deletes an instance if it exists took 0,115 sec
+	Caused an ERROR
+No signature of method: fr.isima.gask.BadgeCategoryController.delete() is applicable for argument types: (null) values: [null]
+Possible solutions: get(), every(), sleep(long), get(int), getAt(java.lang.String), split(groovy.lang.Closure)
+groovy.lang.MissingMethodException: No signature of method: fr.isima.gask.BadgeCategoryController.delete() is applicable for argument types: (null) values: [null]
+Possible solutions: get(), every(), sleep(long), get(int), getAt(java.lang.String), split(groovy.lang.Closure)
+	at fr.isima.gask.BadgeCategoryControllerSpec.Test that the delete action deletes an instance if it exists(BadgeCategoryControllerSpec.groovy:130)
+

@@ -6,7 +6,6 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.converters.JSON
 import java.util.LinkedHashMap
-import java.security.MessageDigest
 @Transactional(readOnly = true)
 class UserController {
 
@@ -54,49 +53,51 @@ class UserController {
     }
 
     def privileges(int id){
-        def user = User.get(request.JSON.id)
-        render user.privileges as JSON   
+        def user = User.get(id)
+        render user.privileges.asList() as JSON   
         
     }
 
     def badges(int id){
-        def user = User.get(request.JSON.id)
-        render user.badges as JSON 
+        def user = User.get(id)
+        render user.badges.asList() as JSON 
     }
 
     def questions(int id){
-        def user = User.get(request.JSON.id)
-        render user.questions as JSON   
+        def user = User.get(id)
+        render user.questions.asList() as JSON   
     
     }
     
     def answers(int id){
-        def user = User.get(request.JSON.id)
-        render user.answers as JSON   
+        def user = User.get(id)
+        render user.answers.asList() as JSON   
     
     } 
 
     def comments(int id){
-        def user = User.get(request.JSON.id)
-        render user.comments as JSON   
+        def user = User.get(id)
+        render user.comments.asList() as JSON   
     
     }
 
-    def tags(int id){
-        def user = User.get(request.JSON.id)
-        render user.tags as JSON   
+    def mtags(int id){
+        def user = User.get(id)
+        if(user != null){
+            render user.tags.asList() as JSON   
+        }
     
     }
 
     def notifications(int id){
-        def user = User.get(request.JSON.id)
-        render user.notifications as JSON   
+        def user = User.get(id)
+        render user.notifications.asList() as JSON   
     
     }
 
     def votes(int id){
-        def user = User.get(request.JSON.id)
-        render user.votes as JSON   
+        def user = User.get(id)
+        render user.votes.asList() as JSON   
     
     }
     //Done
@@ -126,9 +127,7 @@ class UserController {
     //Done
     @Transactional
     def update(int id){
-        def userInstance = User.get(id)
-        println request.JSON
-        
+        def userInstance = User.get(id)        
         def result = new LinkedHashMap()
         if (userInstance == null) {
             result.done = false
@@ -139,7 +138,6 @@ class UserController {
 
 
         userInstance.properties = request.JSON
-        println userInstance.name
         
         if (!userInstance.save(flush:true)) {
             result.done = false
@@ -158,7 +156,7 @@ class UserController {
         def result = new LinkedHashMap()
         if(session.user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(session.user.id == request.JSON.adminId && session.user.password == request.JSON.adminPass){
             if(session.user.isAdmin == true){
                 def userInstance = User.get(id)
@@ -167,11 +165,11 @@ class UserController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'  
+                result.errs = 6  
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -181,7 +179,7 @@ class UserController {
         def result = new LinkedHashMap()
         if(session.user == null){
             result.done = false
-            result.errs = 'no user connected'
+            result.errs = 1
         }else if(session.user.id == request.JSON.adminId && session.user.password == request.JSON.adminPass){
             if(session.user.isAdmin == true){
                 def userInstance = User.get(id)
@@ -190,12 +188,12 @@ class UserController {
                 result.errs = null
             }else{
                 result.done = false
-                result.errs = 'User Not admin'
+                result.errs = 6
                 
             }
         }else{
             result.done = false
-            result.errs = 'params not corresponding to Current User'   
+            result.errs = 3   
         }
         render result as JSON
     }
@@ -205,14 +203,14 @@ class UserController {
         def result = new LinkedHashMap()
         if(session.user != null){
             result.done = false
-            result.errs = 'user already connected'    
+            result.errs = 8    
         }else if (user) {
             session.user = user
             result.done = true
             result.errs = null
         }else {
             result.done = false
-            result.errs = "User not found"
+            result.errs = 2
         }
         render result as JSON
     }

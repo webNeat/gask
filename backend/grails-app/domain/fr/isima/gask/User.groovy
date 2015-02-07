@@ -22,6 +22,8 @@ class User {
 					tags : Tag, votes : Vote ]
 	static mapping = {
 		bio type : "text"
+		//tags cascade: 'all-delete-orphan'
+		//tags cascade: 'save-update,delete,all-delete-orphan'
 	}
 
     static constraints = {

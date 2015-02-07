@@ -14,8 +14,8 @@ class QuestionController {
     def index(){
         render Question.list() as JSON
     }
-    def get(int questionId){
-        def question = Question.get(questionId)
+    def get(int id){
+        def question = Question.get(id)
         def result = new LinkedHashMap()
         if(question == null){
             result.id = -1
@@ -33,77 +33,192 @@ class QuestionController {
         }
         render questions as JSON
     }
-    def answers(int questionId){
-        def question = Question.get(questionId)
-        render question.answer as JSON
+    def answers(int id){
+        def question = Question.get(id)
+        render question.answers.asList() as JSON
     }
-    def comments(int questionId){
-        def question = Question.get(questionId)
-        render question.comment as JSON
+    def comments(int id){
+        def question = Question.get(id)
+        render question.comments.asList() as JSON
     }
-    def tags(int questionId){
-        def question = Question.get(questionId)
-        render question.tag as JSON
+    def tags(int id){
+        def question = Question.get(id)
+        render question.tags.asList() as JSON
     }
-    def votes(int questionId){
-        def question = Question.get(questionId)
-        render question.vote as JSON
+    def votes(int id){
+        def question = Question.get(id)
+        render question.votes.asList() as JSON
     }
     @Transactional
     def create(){
-        def listTags = Tag.getAll(params.tags)
-        def questionInstance = new Question(title : params.title, content : params.content, tags : listTags)
-        questionInstance.user = session.user
+        def questionInstance = new Question()
+        def user = User.get(session.user.id) 
+        questionInstance.properties = request.JSON
         def result = new LinkedHashMap()
         if (questionInstance == null) {
             result.done = false
             result.errs = null
-            render result as JSON
-            return
-        }
-        if (!questionInstance.save(flush:true)) {
+        }else if(user != null){
+            if (!questionInstance.save(flush:true)) {
+                result.done = false
+                result.errs = questionInstance.errors
+            }else{
+                //Ajouter au owner
+                questionInstance.author.addToQuestions(questionInstance).save(flus:true)
+                result.done = true
+                result.errs = null
+            }
+        }else{
             result.done = false
-            result.errs = questionInstance.errs
-            render result as JSON
-            return
+            result.errs = 1
         }
-
-        result.done = true
-        result.errs = null
         render result as JSON
+    }
+    @Transactional
+    def update(int id){
+        def questionInstance = Question.get(id)
+        def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
+        if (questionInstance == null) {
+            result.done = false
+            result.errs = 11
+        }
+        if(user == null){
+            result.done = false
+            result.errs = 1
+        }else if((questionInstance.author.id == request.JSON.userId && questionInstance.author.password == request.JSON.password) || user.isAdmin == true ){
+            //user ==  admin
+                questionInstance.content = request.JSON.content
+                if(questionInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 12
+                }
+        }else{
+            result.done = false
+            result.errs = 3   
+        }
+        render result as JSON
+    }
+    @Transactional
+    def upVote(int id){
+        def user = User.get(session.user.id)        
+        def privilege = user.privileges.asList()
+        def votesUser = user.votes.asList()
+        def votesQuestion = Question.get(id).votes.asList()
+        def questionInstance = Question.get(id)
+        def result = new LinkedHashMap()
+         if(privileges != null){
+            def votesCommons = votesUser.intersect(votesQuestion)
+            if(votesCommons == null){
+                def vote = new Vote()
+                vote.value  = 1
+                user.addToVotes(vote).save(flus:true)
+                questionInstance.addToVotes(vote).save(flus:true)
+                result.done = true
+                result.errs = null
+            }else if(votesCommons.value == -1){
+                votesCommons.value = 1
+                votesCommons.save(flus:true)
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 4
+            }
+        }else{
+                result.done = false
+                result.errs = 5
+        }
+        render result as JSON
+    }
+    @Transactional
+    def downVote(int id){
+        def user = User.get(session.user.id)        
+        def privilege = user.privileges.asList()
+        def votesUser = user.votes.asList()
+        def votesQuestion = Question.get(id).votes.asList()
+        def questionInstance = Question.get(id)
+        def result = new LinkedHashMap()
+         if(privileges != null){
+            def votesCommons = votesUser.intersect(votesQuestion)
+            if(votesCommons == null){
+                def vote = new Vote()
+                vote.value  = -1
+                user.addToVotes(vote).save(flus:true)
+                questionInstance.addToVotes(vote).save(flus:true)
+                result.done = true
+                result.errs = null
+            }else if(votesCommons.value == 1){
+                votesCommons.value = -1
+                votesCommons.save(flus:true)
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 4
+            }
+        }else{
+                result.done = false
+                result.errs = 5
+        }
+        render result as JSON 
 
     }
-    
-   /*
-    create: POST
-        params : {title, content, tags:array of ids}
-        // the author is the current user
-        {done: bool, errs: array}
-    update(questionId): PUT
-        params : {title, content, tags:array, userId, password(hashed)}
-        // check if the user is the author or an admin
-        // and check the password
-        {done: bool, errs: array}
-    upVote(questionId): PUT
-        params: {userId, userPass(hashed)}
-        // check if user have the privilege
-        // check if the user didn't already voted this question
-        // check the password
-        {done: bool, errs: array}
-    downVote(questionId): PUT
-        params: {userId, userPass(hashed)}
-        // check if user have the privilege
-        // check if the user didn't already voted this question
-        // check the password
-        {done: bool, errs: array}
-    hide(questionId): DELETE
-        params: {userId, userPass(hashed)}
-        // check if user is the owner or an admin
-        // set hidden to true
-        {done: bool, errs: array}
-    delete(questionId): DELETE
-        params: {adminId, adminPass(hashed)}
-        {done: bool, errs: array}
-
-*/
+    @Transactional
+    def hide(int id){
+        def questionInstance = Question.get(id)
+        def result = new LinkedHashMap()
+        def user = User.get(session.user.id)        
+        if (questionInstance == null) {
+            result.done = false
+            result.errs = 11
+        }
+        if(user == null){
+            result.done = false
+            result.errs = 1
+        }else if((questionInstance.author.id == request.JSON.userId && questionInstance.author.password == request.JSON.userPass) || user.isAdmin == true ){
+                questionInstance.hidden = true
+                if(questionInstance.save(flush:true)){
+                    result.done = true    
+                    result.errs = null
+                }else{
+                    result.done = false
+                    result.errs = 12
+                }
+            }else{
+            result.done = false
+            result.errs = 3   
+        }
+        render result as JSON   
+    }
+    @Transactional
+    def delete(int id) {
+        def questionInstance = question.get(id)
+        def user = User.get(session.user.id) 
+        def result = new LinkedHashMap()
+        if (questionInstance == null) {
+            result.done = false
+            result.errs = 11
+        }else if(user == null){
+            result.done = false
+            result.errs = 1
+        }else if(user.id == request.JSON.adminId && user.password == request.JSON.adminPass){
+            if(user.isAdmin == true){
+                questionInstance.author.removeFromQuestions(questionInstance)
+                questionInstance.delete flush:true
+                result.done = true
+                result.errs = null
+            }else{
+                result.done = false
+                result.errs = 6
+            }
+        }else{
+            result.done = false
+            result.errs = 3   
+        }
+        render result as JSON
+    }   
 }
