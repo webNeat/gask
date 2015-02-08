@@ -1,3 +1,0 @@
-[User|name;realName;password;email;photo;bio;birthday;website;location;reputation;createdAt;lastLogin;profileViews;isAdmin]<>1->*[Vote|createdAt;value], [User]<>1->*[Answer|content;hidden],[User]<>1->*[Question|title;content;modifiedAt;hidden;views;createdAt],[User]<>1->*[Comment|content;hidden],[User]<>1->*[Notification|name;type;url;isRead;createdAt],[User]<>*->*[Privilege|name;description;reputation],[User]<>*->*[Badge|name;description],[User]<>*->*[Tag|name;content],[Answer]<>1->*[Vote],[Answer]<>1->*[Comment],[BadgeCategory|name;icon]<>1->*[Badge],[Comment]<>1->*[Vote],[PrivilegeCategory|name;icon]<>1->*[Privilege],[Question]<>*->*[Tag],[Question]<>1->*[Answer],[Question]<>1->*[Vote],[Question]<>1->*[Comment]
-[Page|title;content]
-
