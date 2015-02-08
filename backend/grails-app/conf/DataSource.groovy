@@ -13,7 +13,7 @@ dataSource {
     //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
     url="jdbc:mysql://localhost/gask2"
     username = "root"
-    password = "00"
+    password = "1990+raja"
 }
 hibernate {
     cache.use_second_level_cache = true

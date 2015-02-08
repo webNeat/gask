@@ -1,0 +1,37 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1178" measuredH="558" mockupW="890" mockupH="553">
+  <controls>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Arrow" x="643" y="12" w="27" h="124" measuredW="150" measuredH="100" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <color>10066329</color>
+        <curvature>0</curvature>
+        <direction>bottom</direction>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="288" y="5" w="890" h="553" measuredW="450" measuredH="400" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Gask</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Canvas" x="288" y="75" w="890" h="55" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="303" y="90" w="76" h="-1" measuredW="31" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Gask</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::MenuBar" x="831" y="88" w="173" h="29" measuredW="148" measuredH="29" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>http%3A//Login%2C</hrefs>
+        <selectedIndex>-1</selectedIndex>
+        <text>Login%2C%20%20%20%20%20%20Join%20us</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::SearchBox" x="1027" y="88" w="-1" h="-1" measuredW="120" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>search</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
