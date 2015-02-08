@@ -37,6 +37,7 @@ class TagController {
     //DONE
     @Transactional
     def addToFavorites(int id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)
         def result = new LinkedHashMap()
 
@@ -57,7 +58,8 @@ class TagController {
     }
     //Done
     @Transactional
-    def removeFromFavorites(int id){
+    def removeFromFavorites(Integer id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)
         def tag = Tag.get(id)
         def result = new LinkedHashMap()
@@ -75,7 +77,8 @@ class TagController {
     }
     //Done
     @Transactional
-    def update(int id){
+    def update(Integer id){
+        if(!id) id = request.JSON.id
         def tagInstance = Tag.get(id)
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)        
@@ -109,6 +112,7 @@ class TagController {
     //DONE
     @Transactional
     def delete(int id) {
+        if(!id) id = request.JSON.id
         def tagInstance = Tag.get(id)
         def user = User.get(session.user.id) 
         def result = new LinkedHashMap()

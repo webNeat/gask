@@ -77,6 +77,7 @@ class QuestionController {
     }
     @Transactional
     def update(int id){
+        if(!id) id = request.JSON.id
         def questionInstance = Question.get(id)
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)        
@@ -105,24 +106,26 @@ class QuestionController {
     }
     @Transactional
     def upVote(int id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)        
-        def privilege = user.privileges.asList()
+        def privileges = user.privileges.asList()
         def votesUser = user.votes.asList()
         def votesQuestion = Question.get(id).votes.asList()
         def questionInstance = Question.get(id)
-        def result = new LinkedHashMap()
-         if(privileges != null){
+        def result = new LinkedHashMap() 
+        // if(privileges != null){
+        if(true){
             def votesCommons = votesUser.intersect(votesQuestion)
-            if(votesCommons == null){
+            if(votesCommons == null || votesCommons.isEmpty()){
                 def vote = new Vote()
                 vote.value  = 1
                 user.addToVotes(vote).save(flus:true)
                 questionInstance.addToVotes(vote).save(flus:true)
                 result.done = true
                 result.errs = null
-            }else if(votesCommons.value == -1){
-                votesCommons.value = 1
-                votesCommons.save(flus:true)
+            }else if(votesCommons[0].value == -1){
+                votesCommons[0].value = 1
+                votesCommons[0].save(flus:true)
                 result.done = true
                 result.errs = null
             }else{
@@ -137,24 +140,26 @@ class QuestionController {
     }
     @Transactional
     def downVote(int id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)        
-        def privilege = user.privileges.asList()
+        def privileges = user.privileges.asList()
         def votesUser = user.votes.asList()
         def votesQuestion = Question.get(id).votes.asList()
         def questionInstance = Question.get(id)
         def result = new LinkedHashMap()
-         if(privileges != null){
+        //if(privileges != null){
+        if(true){
             def votesCommons = votesUser.intersect(votesQuestion)
-            if(votesCommons == null){
+            if(votesCommons == null || votesCommons.isEmpty()){
                 def vote = new Vote()
                 vote.value  = -1
                 user.addToVotes(vote).save(flus:true)
                 questionInstance.addToVotes(vote).save(flus:true)
                 result.done = true
                 result.errs = null
-            }else if(votesCommons.value == 1){
-                votesCommons.value = -1
-                votesCommons.save(flus:true)
+            }else if(votesCommons[0].value == 1){
+                votesCommons[0].value = -1
+                votesCommons[0].save(flus:true)
                 result.done = true
                 result.errs = null
             }else{
@@ -170,6 +175,7 @@ class QuestionController {
     }
     @Transactional
     def hide(int id){
+        if(!id) id = request.JSON.id
         def questionInstance = Question.get(id)
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)        
@@ -197,6 +203,7 @@ class QuestionController {
     }
     @Transactional
     def delete(int id) {
+        if(!id) id = request.JSON.id
         def questionInstance = question.get(id)
         def user = User.get(session.user.id) 
         def result = new LinkedHashMap()

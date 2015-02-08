@@ -3,7 +3,7 @@
   <div class="col-md-8">
     <h3>New Question</h3>
     <div class="alert alert-warning" role="alert" ng-show="errs.length">
-      <button type="button" class="close" aria-label="Close" ng-click="err=''"><span aria-hidden="true">&times;</span></button>
+      <button type="button" class="close" aria-label="Close" ng-click="errs=[]"><span aria-hidden="true">&times;</span></button>
       <p ng-repeat="e in errs"> {{e}} </p>
     </div>
     <form>

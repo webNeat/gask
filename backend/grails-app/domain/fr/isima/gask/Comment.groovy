@@ -11,5 +11,7 @@ class Comment {
 	}
     static constraints = {
     	content blank : false, nullable : false
+    	answer nullable: true
+    	question nullable: true
     }
 }

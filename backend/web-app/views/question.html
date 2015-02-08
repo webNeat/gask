@@ -1,8 +1,39 @@
 <div class="row">
-	<div class="col-md-8">
-		<h3> {{q.title}} </h3>
-    <div>
-      <pagedown-viewer content="q.content"></pagedown-viewer>
+  <div class="col-md-2"></div>
+	<div class="col-md-8 content">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2> 
+          {{q.title}}
+          <div class="pull-right">
+            {{votesTotal}} 
+            <a href="" class="btn btn-danger" ng-click="downVoteQuestion()"> - </a>
+            <a href="" class="btn btn-success" ng-click="upVoteQuestion()"> + </a>
+          </div>
+        </h2>
+      </div>
+      <div class="panel-body">
+        <pagedown-viewer content="q.content"></pagedown-viewer>
+        <div class="pull-right">
+          <a class="btn btn-primary btn-sm" href="#/tag/{{t.id}}"
+            ng-repeat="t in tags"> {{t.name}} </a>
+        </div>
+      </div>
     </div>
+    
+    <div ng-if="isConnected" class="panel panel-default">
+      <div class="panel-heading">
+        <h2> Add Comment </h2>
+      </div>
+      <div class="panel-body">
+        <form>
+          <div class="form-group">
+            <pagedown-editor content="comment.content"></pagedown-editor>      
+          </div>
+          <button class="btn btn-primary" ng-click="addComment()">Add Comment</button>
+        </form>
+      </div>
+    </div>
+
 	</div>
 </div>

@@ -30,8 +30,11 @@ class CommentController {
     @Transactional
     def create(){
         def commentInstance = new Comment()
-        def user = User.get(session.user.id) 
-        commentInstance.properties = request.JSON
+        def user = User.get(session.user.id)
+        def question = Question.get(request.JSON.qId)
+        commentInstance.content = request.JSON.content
+        commentInstance.author = user
+        commentInstance.question = question
         def result = new LinkedHashMap()
         if (commentInstance == null) {
             result.done = false
@@ -53,6 +56,7 @@ class CommentController {
     }
     @Transactional
     def update(int id){
+        if(!id) id = request.JSON.id
         def commentInstance = Comment.get(id)
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)        
@@ -80,6 +84,7 @@ class CommentController {
     }
     @Transactional
     def upVote(int id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)        
         def privilege = user.privileges.asList()
         def votesUser = user.votes.asList()
@@ -112,6 +117,7 @@ class CommentController {
     }
     @Transactional
     def downVote(int id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)        
         def privilege = user.privileges.asList()
         def votesUser = user.votes.asList()
@@ -145,6 +151,7 @@ class CommentController {
     }
     @Transactional
     def hide(int id){
+        if(!id) id = request.JSON.id
         def commentInstance = Comment.get(id)
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)        
@@ -172,6 +179,7 @@ class CommentController {
     }
     @Transactional
     def delete(int id) {
+        if(!id) id = request.JSON.id
         def commentInstance = comment.get(id)
         def user = User.get(session.user.id) 
         def result = new LinkedHashMap()

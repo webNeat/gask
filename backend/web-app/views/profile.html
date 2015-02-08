@@ -32,10 +32,42 @@
   </div>
 </div>
 <div class="col-md-7">
+  <div class="alert alert-info" role="alert" ng-show="msg">
+    <button type="button" class="close" aria-label="Close" ng-click="msg=''"><span aria-hidden="true">&times;</span></button>
+    {{msg}}
+  </div>
   <tabset>
-    <tab heading="Questions">Questions</tab>
+    <tab heading="Questions">
+      <ul class="list-group">
+        <li class="list-group-item row" ng-repeat="q in questions"><h5>
+          <div class="col-md-5">
+              <span class="label label-default">{{q.votes.length}} Votes</span>            
+              <span class="label label-default">{{q.answers.length}} Answer</span>            
+              <span class="label label-default">{{q.views}} Views</span>
+          </div>
+          <div class="col-md-7">
+              <a href="#/question/{{q.id}}"> {{q.title}} </a>
+          </div>
+        </h5></li>
+      </ul>
+    </tab>
     <tab heading="Answers">Answers</tab>
-    <tab heading="Tags">Tags</tab>
+    <tab heading="Favorite Tags">
+      <div class="panel panel-default"><div class="panel-body">
+        <a class="btn btn-primary" ng-repeat="t in tags" href="#/tag/{{t.id}}"> {{t.text}} </a>
+      </div></div>
+      <div ng-if="isConnected">      
+        <h3>Edit Tags</h3>
+        <form>
+          <div class="form-group">
+            <tags-input ng-model="tags">
+              <auto-complete source="loadTags($query)"></auto-complete>
+            </tags-input>
+          </div>
+          <button class="btn btn-primary" ng-click="updateTags()">Update</button>
+        </form>
+      </div>
+    </tab>
     <tab heading="Badges">Badges</tab>
     <tab heading="Privileges">Privileges</tab>
     <tab heading="Votes">Votes</tab>

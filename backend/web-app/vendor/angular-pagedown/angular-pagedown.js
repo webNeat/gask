@@ -126,13 +126,14 @@ angular.module("ui.pagedown", [])
                 }
 
                 scope.sanitizedContent = $sce.trustAsHtml(converter.makeHtml(scope.content));
+                console.log(scope.sanitizedContent);
             };
 
             unwatch = scope.$watch("content", run);
 
             run();
 
-            var newElementHtml = "<pre ng-bind-html='sanitizedContent'></pre>";
+            var newElementHtml = "<div ng-bind-html='sanitizedContent'></div>";
             var newElement = $compile(newElementHtml)(scope);
 
             element.append(newElement);

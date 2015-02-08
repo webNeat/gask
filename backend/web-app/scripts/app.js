@@ -33,6 +33,14 @@ var app = angular.module('gask', [
         templateUrl: 'views/ask.html',
         controller: 'AskCtrl'
       })
+      .when('/tags', {
+        templateUrl: 'views/tags.html',
+        controller: 'TagsCtrl'
+      })
+      .when('/tag/:tagId', {
+        templateUrl: 'views/questions.html',
+        controller: 'QuestionsCtrl'
+      })
       .when('/questions', {
         templateUrl: 'views/questions.html',
         controller: 'QuestionsCtrl'

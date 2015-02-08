@@ -58,6 +58,7 @@ class AnswerController {
     }
     @Transactional
     def update(int id){
+        if(!id) id = request.JSON.id
         def answerInstance = Answer.get(id)
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)        
@@ -86,6 +87,7 @@ class AnswerController {
     }
     @Transactional
     def upVote(int id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)        
         def privilege = user.privileges.asList()
         def votesUser = user.votes.asList()
@@ -117,6 +119,7 @@ class AnswerController {
     }
     @Transactional
     def downVote(int id){
+        if(!id) id = request.JSON.id
         def user = User.get(session.user.id)        
         def privilege = user.privileges.asList()
         def votesUser = user.votes.asList()
@@ -149,6 +152,7 @@ class AnswerController {
     }
     @Transactional
     def hide(int id){
+        if(!id) id = request.JSON.id
         def answerInstance = Answer.get(id)
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)        
@@ -176,6 +180,7 @@ class AnswerController {
     }
     @Transactional
     def delete(int id) {
+        if(!id) id = request.JSON.id
         def answerInstance = Answer.get(id)
         def user = User.get(session.user.id) 
         def result = new LinkedHashMap()
@@ -202,6 +207,7 @@ class AnswerController {
         render result as JSON
     }
     def markAsBest(int id){
+        if(!id) id = request.JSON.id
         def result = new LinkedHashMap()
         def user = User.get(session.user.id)
         def answer = Answer.get(id)

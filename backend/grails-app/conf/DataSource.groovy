@@ -11,9 +11,9 @@ dataSource {
     dialect = org.hibernate.dialect.MySQL5InnoDBDialect
     dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
     //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-    url="jdbc:mysql://localhost/gask2"
+    url="jdbc:mysql://localhost/gask"
     username = "root"
-    password = "1990+raja"
+    password = "00"
 }
 hibernate {
     cache.use_second_level_cache = true

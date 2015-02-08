@@ -69,7 +69,7 @@ app.controller('AskCtrl', function ($scope, $window, db, err){
 	}
 
 	var submitQuestion = function(){
-		var r = db.Question.create(JSON.stringify($scope.question), function(){
+		var r = db.Question.create($scope.question, function(){
 			if(r.done){
 				$window.location.href = Config.appURL + '#/questions';
 			} else {
@@ -89,7 +89,7 @@ app.controller('AskCtrl', function ($scope, $window, db, err){
 			}
 		});
 		if(validate(['title','content'])){
-			submitTags();			
+			submitTags();
 		}
 	}
 });
