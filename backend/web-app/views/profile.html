@@ -1,3 +1,66 @@
 <div class="row">
-	My Awesome profile
+	<div class="col-md-5">
+		<h3>{{current.name}}</h3>
+		<h4>{{current.reputation}}</h4>
+		<div class="panel panel-default">
+      <div class="panel-body list-group">
+       <div class="list-group-item" ng-show="current.bio">
+        {{current.bio}}
+      </div>
+      <div class="list-group-item" ng-show="current.name">
+        Username : {{current.name}}
+      </div>
+      <div class="list-group-item" ng-show="current.realName">
+        Real name : {{current.realName}}
+      </div>
+      <div class="list-group-item" ng-show="current.email">
+        Email : {{current.email}}
+      </div>
+      <div class="list-group-item" ng-show="current.website">
+        Website : {{current.website}}
+      </div>
+      <div class="list-group-item" ng-show="current.location">
+        Location : {{current.location}}
+      </div>
+      <div class="list-group-item" ng-show="current.createdAt">
+        member since : {{current.createdAt | date:'MM/dd/yyyy'}}
+      </div>
+      <div class="list-group-item" ng-show="current.profile_views">
+        profile views : {{current.profile_views}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-7">
+  <tabset>
+    <tab heading="Questions">Questions</tab>
+    <tab heading="Answers">Answers</tab>
+    <tab heading="Tags">Tags</tab>
+    <tab heading="Badges">Badges</tab>
+    <tab heading="Privileges">Privileges</tab>
+    <tab heading="Votes">Votes</tab>
+    <tab ng-if="isConnected" heading="Edit">
+      <h3>Edit your account</h3>
+      <div class="alert alert-warning" role="alert" ng-show="errs.length">
+        <button type="button" class="close" aria-label="Close" ng-click="err=''"><span aria-hidden="true">&times;</span></button>
+        <p ng-repeat="e in errs"> {{e}} </p>
+      </div>
+      <form>
+        <div class="form-group {{errorClass('name')}}">
+          <input type="text" class="form-control" ng-model="current.name" 
+          placeholder="Enter your username">
+        </div>
+        <div class="form-group {{errorClass('email')}}">
+          <input type="email" class="form-control" ng-model="current.email" 
+          placeholder="Enter your email">
+        </div>
+        <div class="form-group"><input type="text" class="form-control" ng-model="current.realName" placeholder="Enter your real name"></div>
+        <div class="form-group"><input type="url" class="form-control" ng-model="current.website" placeholder="Enter your website link"></div>
+        <div class="form-group"><input type="text" class="form-control" ng-model="current.location" placeholder="Enter your location"></div>
+        <div class="form-group"><textarea class="form-control" ng-model="current.bio" placeholder="Enter Your biography"></textarea></div>
+        <button class="btn btn-primary" ng-click="update()">Update Account</button>
+      </form>
+    </tab>
+  </tabset>
+</div>
 </div>

@@ -3,6 +3,8 @@ package fr.isima.gask
 class Tag {
 	String name
 	String content
+	Set questions = []
+	Set users = []
 
 	static belongsTo = [ Question, User]
 	static hasMany = [ questions : Question, users : User ]
@@ -15,6 +17,5 @@ class Tag {
     static constraints = {
     	name blank : false, nullable : false
     	content blank : false, nullable : false
-
     }
 }

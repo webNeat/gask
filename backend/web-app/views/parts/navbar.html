@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation" ng-controller="PartsCtrl">
+<nav class="navbar navbar-inverse" role="navigation" ng-controller="PartsCtrl">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -9,12 +9,17 @@
         </button>
         <a class="navbar-brand" href="#/">Gask</a>
       </div>
+      <ul class="nav navbar-nav">
+        <li><a href="#/questions">Questions</a></li>
+        <li><a href="#/tags">Tags</a></li>
+        <li class="active"><a href="#/ask">Ask Question</a></li>
+      </ul>
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <!-- Admin -->
 
           <!-- User -->
-
+          <li><a ng-if="isUser" href="#/profile/{{current.id}}">{{current.name}} ({{current.reputation}})</a></li>
           <li><a ng-if="isUser" href="" ng-click="logout()">Logout</a></li>
           <!-- Visitor -->
           <li><a href="#/login" ng-if="!isUser">Login</a></li>

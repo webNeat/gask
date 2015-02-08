@@ -137,7 +137,8 @@ class TagController {
     //DONE 
     @Transactional
     def create(){
-        def tagInstance = new Tag(request.JSON)
+        def tagInstance = new Tag()
+        tagInstance.properties = request.JSON
         def result = new LinkedHashMap()
         if (tagInstance == null) {
             result.done = false
@@ -154,6 +155,7 @@ class TagController {
 
         result.done = true
         result.errs = null
+        result.id = tagInstance.id
         render result as JSON
 
     }

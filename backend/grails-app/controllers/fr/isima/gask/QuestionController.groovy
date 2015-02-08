@@ -52,19 +52,20 @@ class QuestionController {
     @Transactional
     def create(){
         def questionInstance = new Question()
-        def user = User.get(session.user.id) 
+        def user = User.get(session.user.id)
         questionInstance.properties = request.JSON
         def result = new LinkedHashMap()
-        if (questionInstance == null) {
-            result.done = false
-            result.errs = null
-        }else if(user != null){
+        if(user != null){
+            questionInstance.author = user
+            for(t in questionInstance.tags){ 
+                t.save(flush:true)
+            }
             if (!questionInstance.save(flush:true)) {
                 result.done = false
                 result.errs = questionInstance.errors
             }else{
-                //Ajouter au owner
-                questionInstance.author.addToQuestions(questionInstance).save(flus:true)
+                // Add question to current user
+                user.addToQuestions(questionInstance).save(flus:true)
                 result.done = true
                 result.errs = null
             }

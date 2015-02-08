@@ -6,32 +6,43 @@ var app = angular.module('gask', [
     'ngMessages',
     'ngResource',
     'ngRoute',
-     'ngSanitize'
+    'ngSanitize',
+    'ui.bootstrap',
+    'ui.pagedown',
+    'ngTagsInput'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/user', {
-        templateUrl: 'views/user.html',
-        controller: 'UserCtrl'
-      })
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'UserCtrl'
+        controller: 'VisitorCtrl'
       })
       .when('/register', {
         templateUrl: 'views/register.html',
+        controller: 'VisitorCtrl'
+      })
+      .when('/users', {
+        templateUrl: 'views/users.html',
         controller: 'UserCtrl'
       })
-      .when('/profile', {
+      .when('/profile/:id', {
         templateUrl: 'views/profile.html',
-        controller: 'UserCtrl'
+        controller: 'ProfileCtrl'
+      })
+      .when('/ask', {
+        templateUrl: 'views/ask.html',
+        controller: 'AskCtrl'
+      })
+      .when('/questions', {
+        templateUrl: 'views/questions.html',
+        controller: 'QuestionsCtrl'
+      })
+      .when('/question/:id', {
+        templateUrl: 'views/question.html',
+        controller: 'QuestionCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/questions'
       });
   });
 

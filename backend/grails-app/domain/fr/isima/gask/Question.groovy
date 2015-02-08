@@ -19,5 +19,6 @@ class Question {
     static constraints = {
 		title blank : false, nullable : false
 		content blank : false, nullable : false
+		bestAnswer nullable: true
     }
 }

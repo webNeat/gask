@@ -4,6 +4,74 @@
 		"selected_items":
 		[
 			[
+				"Q",
+				"Question"
+			],
+			[
+				"Ques",
+				"questions"
+			],
+			[
+				"subm",
+				"submitQuestion"
+			],
+			[
+				"sub",
+				"submitTags"
+			],
+			[
+				"qus",
+				"questionInstance"
+			],
+			[
+				"app",
+				"appURL"
+			],
+			[
+				"tag",
+				"tagInstance"
+			],
+			[
+				"l",
+				"list"
+			],
+			[
+				"all",
+				"allTags"
+			],
+			[
+				"au",
+				"author"
+			],
+			[
+				"ques",
+				"questionInstance"
+			],
+			[
+				"text",
+				"textarea	Tag"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"re",
+				"rePassword"
+			],
+			[
+				"fiel",
+				"fields"
+			],
+			[
+				"passw",
+				"password"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
 				"borne",
 				"borneUField"
 			],
@@ -248,10 +316,6 @@
 				"list-style"
 			],
 			[
-				"text",
-				"text-align"
-			],
-			[
 				"n",
 				"null"
 			],
@@ -436,10 +500,6 @@
 				"title"
 			],
 			[
-				"au",
-				"authors"
-			],
-			[
 				"form",
 				"form-group"
 			],
@@ -454,116 +514,40 @@
 			[
 				"marg",
 				"margin"
-			],
-			[
-				"proto",
-				"proto	Prototype"
-			],
-			[
-				"set",
-				"setMethod"
-			],
-			[
-				"re",
-				"response"
-			],
-			[
-				"va",
-				"value"
-			],
-			[
-				"prot",
-				"proto	Prototype"
-			],
-			[
-				"xml",
-				"xmlRequest"
-			],
-			[
-				"x",
-				"xmlRequest"
-			],
-			[
-				"meth",
-				"method"
-			],
-			[
-				"methd",
-				"methods"
-			],
-			[
-				"S",
-				"SoapClient"
-			],
-			[
-				"pro",
-				"proto	Prototype"
-			],
-			[
-				"send",
-				"sendRequest"
-			],
-			[
-				"on",
-				"onclick	Attr"
-			],
-			[
-				"strt",
-				"strtotime"
-			],
-			[
-				"s",
-				"start  (variable)"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "backend/web-app/index.html",
-			"settings":
-			{
-				"buffer_size": 1109,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "backend/web-app/scripts/app.js",
-			"settings":
-			{
-				"buffer_size": 475,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "backend/web-app/scripts/controllers/main.js",
-			"settings":
-			{
-				"buffer_size": 67,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "backend/web-app/scripts/controllers/user.js",
-			"settings":
-			{
-				"buffer_size": 254,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "backend/web-app/scripts/services/db.js",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1674,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "backend/web-app/styles/main.css",
+			"file": "backend/web-app/views/question.html",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 164,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/web-app/scripts/controllers/question.js",
+			"settings":
+			{
+				"buffer_size": 451,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/web-app/index.html",
+			"settings":
+			{
+				"buffer_size": 2045,
 				"line_ending": "Unix"
 			}
 		}
@@ -841,21 +825,57 @@
 	"expanded_folders":
 	[
 		"/home/webneat/isima/zz3/projets/gask",
+		"/home/webneat/isima/zz3/projets/gask/about",
 		"/home/webneat/isima/zz3/projets/gask/backend",
-		"/home/webneat/isima/zz3/projets/gask/backend/target/classes",
-		"/home/webneat/isima/zz3/projets/gask/backend/target/classes/fr",
-		"/home/webneat/isima/zz3/projets/gask/backend/target/classes/fr/isima",
-		"/home/webneat/isima/zz3/projets/gask/backend/target/classes/fr/isima/gask",
-		"/home/webneat/isima/zz3/projets/gask/backend/web-app",
-		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts"
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/controllers/fr",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/controllers/fr/isima",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/controllers/fr/isima/gask",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app"
 	],
 	"file_history":
 	[
-		"/home/webneat/isima/zz3/projets/gask/backend/web-app/backup.html",
-		"/home/webneat/workspace/java/biblio/war/app/index.html",
 		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/app.js",
-		"/home/webneat/isima/zz3/projets/gask/backend/web-app/vendor/angular.modules.min.js",
+		"/home/webneat/isima/zz3/projets/gask/about/controllers.txt",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/index.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/controllers/questions.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/ask.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/questions.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/controllers/ask.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/controllers/fr/isima/gask/TagController.groovy",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/controllers/fr/isima/gask/QuestionController.groovy",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/domain/fr/isima/gask/Question.groovy",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/controllers/question.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/conf/DataSource.groovy",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/domain/fr/isima/gask/Tag.groovy",
+		"/home/webneat/isima/zz3/projets/gask/about/design.txt",
+		"/home/webneat/isima/zz3/projets/gask/about/internationalisation.txt",
+		"/home/webneat/isima/zz3/projets/gask/about/models.txt",
+		"/home/webneat/isima/zz3/projets/gask/backend/application.properties",
+		"/home/webneat/isima/zz3/projets/gask/backend/target/work/plugins/database-migration-1.4.0/src/groovy/grails/plugin/databasemigration/DslBuilder.groovy",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/controllers/profile.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/profile.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/register.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/parts/navbar.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/services/db.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/controllers/fr/isima/gask/UserController.groovy",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/controllers/visitor.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/controllers/parts.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/users.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/styles/main.css",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/vendor/ui-bootstrap.min.js",
+		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/conf/BootStrap.groovy",
+		"/home/webneat/isima/zz3/projets/gask/backend/target/work/plugins/asset-pipeline-1.9.9/grails-app/conf/AssetPipelineBootStrap.groovy",
+		"/home/webneat/workspace/java/biblio/war/app/views/author_add.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/login.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/target/stacktrace.log",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/views/user.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/services/err.js",
 		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/conf/UrlMappings.groovy",
+		"/home/webneat/workspace/java/biblio/war/app/css/style.css",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/scripts/controllers/user.js",
+		"/home/webneat/workspace/java/biblio/war/app/index.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/backup.html",
+		"/home/webneat/isima/zz3/projets/gask/backend/web-app/vendor/angular.modules.min.js",
 		"/home/webneat/isima/zz3/projets/gask/backend/web-app/vendor/jquery.min.js",
 		"/home/webneat/isima/zz3/projets/gask/backend/web-app/vendor/angular.min.js",
 		"/home/webneat/isima/zz3/projets/gask/backend/web-app/Gruntfile.js",
@@ -869,15 +889,11 @@
 		"/home/webneat/isima/zz3/projets/gask/frontend/app/index.html",
 		"/home/webneat/isima/zz3/projets/gask/frontend/app/scripts/controllers/about.js",
 		"/home/webneat/isima/zz3/projets/gask/frontend/app/views/about.html",
-		"/home/webneat/isima/zz3/projets/gask/about/design.txt",
-		"/home/webneat/isima/zz3/projets/gask/backend/grails-app/conf/DataSource.groovy",
 		"/home/webneat/isima/zz3/projets/gask/.gitignore",
 		"/home/webneat/isima/zz3/projets/gask/frontend/Gruntfile.js",
 		"/home/webneat/isima/zz3/projets/gask/backend/web-app/tester.html",
 		"/home/webneat/workspace/www/lab/awesome.php",
 		"/home/webneat/isima/zz3/projets/gask/backend/web-app/js/jquery.min.js",
-		"/home/webneat/isima/zz3/projets/gask/about/models.txt",
-		"/home/webneat/isima/zz3/projets/gask/about/controllers.txt",
 		"/home/webneat/isima/zz3/projets/gask/gask.sublime-project",
 		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/qml/main.qml",
 		"/home/webneat/isima/zz3/projets/pfa/indicators/gui/main.cpp",
@@ -945,40 +961,7 @@
 		"/var/www/html/word/src/js/template.js",
 		"/var/www/html/word/dist/js/all.js",
 		"/var/www/html/word/src/jade/parts/footer.jade",
-		"/home/webneat/workspace/java/biblio/war/app/js/soap_client.js",
-		"/home/webneat/workspace/java/biblio/war/app/js/part.js",
-		"/var/www/html/word/package.json",
-		"/var/www/html/word/make.sh",
-		"/var/www/html/word/dist/all.html",
-		"/var/www/html/word/dist/index.html",
-		"/var/www/html/word/src/js/pages.js",
-		"/var/www/html/word/src/sass/mixins/all.sass",
-		"/var/www/html/word/dist/css/main.css",
-		"/var/www/html/word/src/scss/main.scss",
-		"/media/webneat/USB DISK/revision info/mo_projet.c",
-		"/var/www/html/word/src/jade/sample2.jade",
-		"/var/www/html/word/src/js/main.js",
-		"/var/www/html/word/node_modules/grunt-jade/support/global-runtime.template",
-		"/var/www/html/word/src/jade/sample.jade",
-		"/var/www/html/word/dist/jade/all.jade",
-		"/var/www/html/word/node_modules/grunt-wkhtmltopdf/tasks/wkhtmltopdf.js",
-		"/tmp/.fr-at9Hy9/package/tasks/wkhtmltopdf.js",
-		"/var/www/html/word/node_modules/.bin/grunt-wkhtmltopdf",
-		"/var/www/html/word/src/scss/config.rb",
-		"/var/www/html/word/dist/all.js",
-		"/var/www/html/word/dist/runtime.js",
-		"/var/www/html/word/result.pdf",
-		"/var/www/html/word/index.html",
-		"/var/www/html/word/jade/all.jade",
-		"/var/www/html/word/js/all.min.js",
-		"/var/www/html/word/js/all.js",
-		"/home/webneat/.config/sublime-text-3/Packages/User/builds/Grunt.sublime-build",
-		"/var/www/html/word/jade/main.jade",
-		"/var/www/html/word/js/main.js",
-		"/var/www/html/word/jade/sample2.jade",
-		"/var/www/html/word/js/libs/jquery.js",
-		"/var/www/html/word/npm-debug.log",
-		"/home/webneat/tuts/Getting Good with Grunt/notes.txt"
+		"/home/webneat/workspace/java/biblio/war/app/js/soap_client.js"
 	],
 	"find":
 	{
@@ -994,9 +977,53 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"GET",
+			");",
+			"tags",
+			"get",
+			"questions",
+			"tags",
+			"span",
+			"<span",
+			"default",
+			"primary",
+			"<div class=\"col-md-1\">",
+			"$scope.current",
+			"i.",
+			"email",
+			"name",
+			"real_name",
+			"login",
+			"questions",
+			"Badges",
+			"Tab",
+			"Static title",
+			"href",
+			"current",
+			"list-item",
+			"name",
+			"email",
+			"Username",
+			"name",
+			"username",
+			"UserCtrl",
+			"$scope.err +=",
+			"<br>",
+			"password",
+			"!'",
+			"email",
+			"name",
+			"''",
+			"<<< HEAD",
+			"HEAD",
+			"<<<<<<<<",
+			"register",
+			"login",
+			"index",
+			"Acceuil",
 			"imagemi",
 			"jsTest",
 			"jshint",
@@ -1080,51 +1107,7 @@
 			"first_argument",
 			"method_name",
 			"afficher_cons",
-			"affiche",
-			"valeur_courante",
-			"decode_int",
-			"code_touche",
-			" ",
-			"wkhtmltopdf",
-			"js/",
-			"windows",
-			"\"",
-			"https",
-			"priority",
-			"targets",
-			"neededPods",
-			"targets",
-			"priority",
-			"Zone",
-			"priority",
-			"collectedPods",
-			"cerr",
-			"wait",
-			"trai",
-			"pre",
-			"//",
-			"rotx",
-			"1,",
-			"0",
-			"float",
-			"1",
-			"glColor3f",
-			"},",
-			"triangle",
-			"html4",
-			"html",
-			":",
-			"command_pa",
-			"string",
-			"iostream",
-			"[Utilisateur]-",
-			" - ",
-			"   ",
-			"16<",
-			"7<",
-			"5<",
-			"	",
-			"<span class=\"page\">"
+			"affiche"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1144,24 +1127,65 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "backend/web-app/index.html",
+					"file": "backend/web-app/scripts/services/db.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1109,
+						"buffer_size": 1674,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								944,
-								944
+								1031,
+								1031
+							],
+							[
+								1111,
+								1111
+							],
+							[
+								1194,
+								1194
+							],
+							[
+								1274,
+								1274
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 454.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "backend/web-app/views/question.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
 							]
 						],
 						"settings":
@@ -1174,87 +1198,30 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "backend/web-app/scripts/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 475,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								160,
-								160
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "backend/web-app/scripts/controllers/main.js",
+					"file": "backend/web-app/scripts/controllers/question.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 67,
+						"buffer_size": 451,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								63,
-								63
+								253,
+								253
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "backend/web-app/scripts/controllers/user.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 254,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								249,
-								249
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1264,54 +1231,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "backend/web-app/scripts/services/db.js",
+					"buffer": 3,
+					"file": "backend/web-app/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								262,
+								262
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "backend/web-app/styles/main.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1319,7 +1257,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1387,6 +1325,34 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"about",
+				"about/controllers.txt"
+			],
+			[
+				"db",
+				"backend/web-app/scripts/services/db.js"
+			],
+			[
+				"nav",
+				"backend/web-app/views/parts/navbar.html"
+			],
+			[
+				"aboutc",
+				"about/controllers.txt"
+			],
+			[
+				"na",
+				"backend/web-app/views/parts/navbar.html"
+			],
+			[
+				"profile",
+				"backend/web-app/views/profile.html"
+			],
+			[
+				"login",
+				"backend/web-app/views/login.html"
+			],
 			[
 				"userjs",
 				"frontend/app/scripts/controllers/user.js"
@@ -1718,7 +1684,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 241.0,
+	"side_bar_width": 236.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

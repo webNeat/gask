@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-8">
+		<h3>Questions</h3>
+		<tabset>
+      <tab heading="All">
+        <ul class="list-group">
+          <li class="list-group-item row" ng-repeat="q in questions"><h4>
+            <div class="col-md-5">
+                <span class="label label-default">{{q.votes.length}} Votes</span>            
+                <span class="label label-default">{{q.answers.length}} Answer</span>            
+                <span class="label label-default">{{q.views}} Views</span>
+            </div>
+            <div class="col-md-7">
+              <p>
+                <a href="#/question/{{q.id}}"> {{q.title}} </a>
+                <br><div class="pull-right">
+                  <a class="btn btn-primary btn-xs" href="#/tag/{{t.id}}"
+                    ng-repeat="t in getTags(q.id)"> {{t.name}} </a>
+                </div>
+              </p>
+            </div>
+          </h4></li>
+        </ul>
+      </tab>
+      <tab heading="Most Viewed">
+        
+      </tab>
+      <tab heading="Favorite Tags">
+        
+      </tab>
+    </tabset>
+	</div>
+</div>

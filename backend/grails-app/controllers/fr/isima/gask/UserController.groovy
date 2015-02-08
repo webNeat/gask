@@ -81,12 +81,11 @@ class UserController {
     
     }
 
-    def mtags(int id){
+    def tags(int id){
         def user = User.get(id)
         if(user != null){
             render user.tags.asList() as JSON   
         }
-    
     }
 
     def notifications(int id){
@@ -127,11 +126,12 @@ class UserController {
     //Done
     @Transactional
     def update(int id){
-        def userInstance = User.get(id)        
+        if(!id) id = request.JSON.id
+        def userInstance = User.get(id)
         def result = new LinkedHashMap()
         if (userInstance == null) {
             result.done = false
-            result.errs = null
+            result.errs = 'User not found !'
             render result as JSON
            return
         }
@@ -153,6 +153,7 @@ class UserController {
     //Done
     @Transactional
     def makeAdmin(int id){
+        if(!id) id = request.JSON.id
         def result = new LinkedHashMap()
         if(session.user == null){
             result.done = false
@@ -176,6 +177,7 @@ class UserController {
     //Done
     @Transactional
     def delete(int id) {
+        if(!id) id = request.JSON.id
         def result = new LinkedHashMap()
         if(session.user == null){
             result.done = false
